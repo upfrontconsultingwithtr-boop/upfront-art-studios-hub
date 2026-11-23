@@ -15,6 +15,7 @@ body{margin:0;color:#fff;background:radial-gradient(ellipse at 50% 3%,#39085a,#0
 a{color:inherit}
 .art{width:100%;max-width:1920px;margin:0 auto;position:relative;overflow:hidden;line-height:0;isolation:isolate}
 .art img{width:100%;height:auto;display:block}
+.art .art-header{position:absolute;top:0;left:38.8671875%;width:40.625%;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,#000 88%,transparent);mask-image:linear-gradient(to bottom,#000 88%,transparent)}
 .hotspot{display:block;position:absolute;z-index:1;overflow:hidden;border-radius:14px;text-indent:-9999px;white-space:nowrap;outline-offset:-3px}
 .hotspot:focus-visible{outline:4px solid #fff;box-shadow:0 0 0 7px #ff28f5}
 @media(hover:hover){.hotspot:hover{background:#ffffff25;box-shadow:inset 0 0 18px #ffffff66}}
@@ -34,13 +35,14 @@ a{color:inherit}
 .note{font-size:.85rem;color:#d1cce7;text-align:center;line-height:1.5;margin:0}
 footer{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:0 16px 32px;font-size:.875rem}
 footer a{color:#b8faff;text-underline-offset:4px}
-@media(max-width:760px){.buttons{grid-template-columns:repeat(2,minmax(0,1fr))}.button{min-height:64px}.actions{padding:18px 12px}.art img{width:100%}}
+@media(max-width:760px){.buttons{grid-template-columns:repeat(2,minmax(0,1fr))}.button{min-height:64px}.actions{padding:18px 12px}.art > img:first-child{width:100%}}
 @media(max-width:380px){.buttons{gap:8px}.button{font-size:.87rem;padding:8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style></head><body>
 <main>
 <section class="art" aria-label="Upfront Art Studio neon creative home. Features the approved design with the founders, game modes, levels and six activities.">
 <img src="/assets/luminary-approved-reference.png" width="1536" height="1024" alt="Upfront Art Studio colorful neon fantasy landing page featuring the founders, How To Challenge, Free Play, progress toward the Master Sketch Artist Award and six creative activities." fetchpriority="high">
+<img class="art-header" src="/assets/upfront-art-studio-header.webp" width="624" height="162" alt="" fetchpriority="high">
 <a class="hotspot home" href="#quick-actions" aria-label="Home, jump to accessible studio actions">Home</a>
 <a class="hotspot sideprogress" href="/studio/?view=learn" aria-label="My Progress">My Progress</a>
 <a class="hotspot sideawards" href="/studio/?view=learn" aria-label="Awards">Awards</a>
