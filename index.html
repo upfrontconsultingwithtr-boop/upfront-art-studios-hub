@@ -1,117 +1,78 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<meta name="theme-color" content="#09031d" />
-<title>Luminary Creative Command Hub | Upfront Art Studios</title>
-<link rel="manifest" href="manifest.webmanifest" />
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d0031">
+<meta name="description" content="Luminary Studio by Upfront Art Studios. Sketch, create, learn and be inspired.">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Luminary Studio">
+<link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="preload" as="image" href="/assets/luminary-approved-reference.png">
+<title>Luminary Studio | Upfront Art Studios</title>
 <style>
-:root{--bg:#061014;--panel:#0c1a21;--panel2:#10232d;--line:#21404d;--text:#f5fbff;--muted:#9eb8c3;--teal:#34e6d4;--violet:#9d6cff;--silver:#cad6dc;--good:#59d98e;--warn:#ffcc66;--bad:#ff7f91}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#123342 0,transparent 34%),radial-gradient(circle at 90% 8%,#271748 0,transparent 32%),var(--bg);color:var(--text);font:16px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}.wrap{max-width:1220px;margin:auto;padding:18px}.top{display:flex;gap:14px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}.brand{display:flex;gap:12px;align-items:center}.mark{width:50px;height:50px;border:1px solid #63e9dc66;border-radius:16px;background:linear-gradient(135deg,#24d9c844,#9b6dff55),#0a1a21;display:grid;place-items:center;font-weight:900;color:var(--teal);box-shadow:inset 0 0 30px #3be3d622}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}h1{font-size:clamp(22px,4vw,34px);margin:2px 0 0}.sub{color:var(--muted);margin:4px 0 0;max-width:720px}.pill{border:1px solid var(--line);background:#0b1b22cc;border-radius:999px;padding:9px 12px;font-size:13px}.dot{width:8px;height:8px;border-radius:99px;background:var(--good);display:inline-block;margin-right:7px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0}.stat,.card{background:linear-gradient(180deg,#10232ddd,#0a171ddd);border:1px solid var(--line);border-radius:18px}.stat{padding:14px}.stat b{display:block;font-size:26px;margin-top:2px}.stat span{color:var(--muted);font-size:12px}.layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:14px}.card{padding:14px;min-width:0}.sectionhead{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.sectionhead h2,.sectionhead h3{margin:0;font-size:17px}.filters{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.btn,.filter,select,input,textarea{font:inherit}.btn,.filter{min-height:42px;border-radius:12px;border:1px solid var(--line);background:#0d2028;color:var(--text);padding:9px 12px;cursor:pointer}.btn.primary,.filter.active{background:linear-gradient(135deg,#1f746e,#5e3ea7);border-color:#5bd8cd66}.btn:focus,.filter:focus,input:focus,select:focus,textarea:focus{outline:2px solid var(--teal);outline-offset:2px}.tasklist{display:grid;gap:9px}.task{width:100%;text-align:left;border:1px solid var(--line);background:#0b1b22;border-radius:14px;padding:12px;color:var(--text);cursor:pointer}.task.sel{border-color:#58ddd1;background:linear-gradient(90deg,#163b3d,#1a1d35)}.tasktop{display:flex;justify-content:space-between;gap:10px}.tasktitle{font-weight:700}.meta{font-size:12px;color:var(--muted);margin-bottom:3px}.tag{font-size:11px;border:1px solid var(--line);border-radius:999px;padding:5px 8px;white-space:nowrap}.pbar{height:6px;background:#071217;border-radius:99px;overflow:hidden;margin-top:10px}.pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--violet))}.newrow{display:flex;gap:8px;margin-top:12px}.field,select,textarea{width:100%;min-height:44px;border-radius:12px;border:1px solid var(--line);background:#09171d;color:var(--text);padding:10px 12px}.detailtop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.detailtop select{width:auto;min-width:170px}.syncbox{margin:12px 0;padding:11px;border-radius:13px;background:#0a1a21;border:1px solid var(--line)}.syncbox strong{display:flex;align-items:center;justify-content:space-between;gap:8px}.syncbox small{display:block;color:var(--muted);margin-top:4px}.chat{display:grid;gap:8px;max-height:380px;overflow:auto;padding-right:2px}.msg{border:1px solid var(--line);background:#0d2028;border-radius:14px;padding:10px 11px}.msg.you{background:#15223a;border-color:#5c4e91}.msg b{font-size:12px}.msg p{margin:4px 0 0;white-space:pre-wrap}.chatrow{display:flex;gap:8px;margin-top:10px}.chatrow input{min-width:0}.tools{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.small{font-size:12px;color:var(--muted)}.launchbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:18px;padding:17px 20px;border:1px solid #3e8b8d;border-radius:18px;background:linear-gradient(105deg,#103c45,#252653)}.launchbar b,.launchbar span{display:block}.launchbar span{font-size:13px;color:#bdd9df;margin-top:3px}.launchlink{text-decoration:none;display:inline-flex;align-items:center}.footer{margin:14px 0 4px;color:var(--muted);font-size:12px;text-align:center}.hidden{display:none!important}
-@media(max-width:820px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.detailtop{flex-direction:column}.detailtop select{width:100%}}@media(max-width:480px){.wrap{padding:12px}.stats{gap:8px}.stat{padding:11px}.stat b{font-size:22px}.newrow,.chatrow{flex-direction:column}.tools{grid-template-columns:1fr}.tasktop{align-items:flex-start}.tag{white-space:normal}}
-
-.install-guide{margin:14px 0;border:1px solid #326f79;background:#0b222d;border-radius:16px;padding:12px 16px;color:var(--text)}
-.install-guide summary{cursor:pointer;font-weight:750;color:#8ff5e8;min-height:28px}
-.install-guide ol{margin:12px 0;padding-left:23px}.install-guide li{margin:7px 0}.install-guide p{margin:9px 0 2px;color:var(--muted);font-size:13px}
-.install-guide a{color:#b3eaff}
-/* v8 approved Luminary Studio neon companion theme */
-:root{--bg:#08021d;--panel:#180a39;--panel2:#270b52;--line:#6d3caa;--text:#fff7ff;--muted:#d3bfe8;--teal:#17dfff;--violet:#f04afa;--silver:#f8dafa;--good:#71f9cc;--warn:#ffd366;--bad:#ff7fba}
-body{background:radial-gradient(ellipse at 15% 5%,#41066b 0,transparent 40%),radial-gradient(ellipse at 85% 10%,#081b78 0,transparent 45%),radial-gradient(ellipse at 45% 75%,#22024f 0,transparent 50%),#070219;color:var(--text)}
-body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.6;background-image:radial-gradient(circle at 10% 20%,#fff 1px,transparent 2px),radial-gradient(circle at 80% 50%,#ffd1ff 1px,transparent 2px);background-size:190px 180px,310px 280px}
-.wrap{max-width:1500px}.top{padding:20px 12px 8px;align-items:center}.mark{width:67px;height:67px;border-radius:50%;font-size:38px;background:radial-gradient(circle,#bb23ee,#230656);border:2px solid #ff69e8;color:#fff;box-shadow:0 0 20px #f32de9,0 0 38px #245aff}.eyebrow{color:#ffb9f6}.top h1{font:italic 700 clamp(27px,4vw,53px) Georgia,serif;letter-spacing:-.04em;text-shadow:0 0 12px #ff36e7,0 0 24px #2b49ff}.top h1 em{color:#9beaff}.sub{color:#e6d3f7}
-.stat,.card{background:linear-gradient(145deg,#230a4bdb,#0d0b31ed);border:2px solid #6936c6;box-shadow:inset 0 0 20px #8b2be520,0 0 12px #6738f044}.stat b{color:#ffd46c;text-shadow:0 0 10px #f49835}.card{border-radius:22px}
-.launchbar{margin-top:20px;border:2px solid #ff55ee;border-radius:27px;box-shadow:0 0 20px #e62aff88;background:linear-gradient(110deg,#33095e,#0a165b,#300a5e);padding:14px 20px;justify-content:flex-start}.launchbar b{font:italic 700 clamp(23px,3vw,36px) Georgia,serif;text-shadow:0 0 14px #ff59e7}.launchbar span{color:#f4dbff}.hub-hero-art{width:145px;height:116px;flex:0 0 145px;overflow:hidden;border-radius:17px;border:2px solid #39dcff;box-shadow:0 0 15px #2eafff}.hub-hero-art img{width:100%;height:100%;object-fit:cover;object-position:center 25%}.launchlink{margin-left:auto}
-.btn.primary,.filter.active{background:linear-gradient(105deg,#ec2cda,#3e57ff,#07c8f5);border-color:#ffb8f7;box-shadow:0 0 13px #ed48ef66}.btn,.filter{background:#211045;border-color:#7947bd}.task,.msg,.syncbox{background:#170c39;border-color:#5e3aa0}.task.sel{background:linear-gradient(90deg,#411068,#1c195f);border-color:#ff6df4}.pbar i{background:linear-gradient(90deg,#13e4ff,#f949f1,#ffc45e)}.field,select,textarea{background:#120a32;border-color:#7041a7}.msg.you{background:#351054;border-color:#a95dd6}.install-guide{background:#1d0b3e;border-color:#9d51e7}.install-guide summary{color:#ffb6f3}.install-guide a{color:#9ceeff}.pill{background:#210c43;border-color:#9d4dc8}.dot{background:#7bffcc}.footer{color:#d2bce9}
-@media(max-width:720px){.launchbar{justify-content:center;text-align:center}.launchlink{margin-left:0}.hub-hero-art{width:100%;max-width:240px;height:140px;flex-basis:240px}}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <header class="top">
-    <div class="brand"><div class="mark">✦</div><div><div class="eyebrow">Upfront Art Studios · Creative Command Hub</div><h1>Luminary <em>Creative Command Hub</em></h1><p class="sub">Your creative headquarters. Organize projects, celebrate milestones and launch your Art Studio.</p></div></div>
-    <div class="pill"><span class="dot"></span><span id="saveState">Saved on this device</span></div>
-  </header>
-  <div class="launchbar"><div class="hub-hero-art"><img src="./studio/luminary-portrait.webp" alt="Luminary Studio illustrated founders"></div><div><div class="eyebrow">✧ Sketch · Create · Learn · Be Inspired</div><b>Your Luminary Studio awaits</b><span>60 lessons · Free Play · Drawing · Coloring · Podcast &amp; Book Writing</span></div><a href="./studio/" class="btn primary launchlink">Enter Luminary Studio ✦</a></div>
-  <details class="install-guide" id="installHelp">
-    <summary>📲 Install the Hub and Art Studio on your iPad or phone</summary>
-    <ol><li>On an iPad or iPhone, open this website directly in <strong>Safari</strong>. If you are inside ChatGPT, choose <strong>Open in Safari</strong> first.</li>
-    <li>Tap the <strong>Share</strong> icon in Safari and choose <strong>Add to Home Screen</strong>. If needed, scroll the Share menu to find it.</li>
-    <li>Tap <strong>Add</strong>. Open the new icon from your Home Screen. You can also install <a href="./studio/">the Art Studio</a> separately using the same steps.</li></ol>
-    <p>No ZIP extraction required. Your drawings, writing and Hub notes are saved on this device, not automatically synced. Export backups before switching devices or clearing Safari data.</p>
-  </details>
-  <section class="stats" aria-label="Project overview">
-    <div class="stat"><span>Open</span><b id="openN">0</b></div><div class="stat"><span>Needs you</span><b id="reviewN">0</b></div><div class="stat"><span>Testing</span><b id="testN">0</b></div><div class="stat"><span>Complete</span><b id="doneN">0</b></div>
-  </section>
-  <main class="layout">
-    <section class="card">
-      <div class="sectionhead"><h2>Project board</h2><span class="small">Tap an item to open its workspace</span></div>
-      <div class="filters" id="filters"></div>
-      <div class="tasklist" id="taskList"></div>
-      <form id="addForm" class="newrow"><input class="field" id="newTitle" maxlength="100" placeholder="Add a new build item…" aria-label="New build item"><button class="btn primary" type="submit">Add</button></form>
-    </section>
-    <section class="card">
-      <div id="empty" class="small">Choose a project item to see its notes and conversation.</div>
-      <div id="detail" class="hidden">
-        <div class="detailtop"><div><div class="eyebrow" id="area"></div><h3 id="title" style="font-size:21px;margin:4px 0 0"></h3></div><select id="status" aria-label="Item status"></select></div>
-        <label class="small" for="progress">Progress <span id="progressLabel"></span>%</label><input id="progress" type="range" min="0" max="100" step="5" style="width:100%;accent-color:#34e6d4">
-        <div class="syncbox"><strong><span>Two-way sync status</span><span id="syncLabel" style="color:var(--warn)">Local mode</span></strong><small id="syncText">Notes and task changes stay on this device. This is not a live ChatGPT conversation or cross-device sync.</small></div>
-        <div class="sectionhead"><h3>Item notes and discussion log</h3><span class="small" id="msgCount"></span></div>
-        <div class="chat" id="chat" aria-live="polite"></div>
-        <form class="chatrow" id="chatForm"><input class="field" id="chatInput" maxlength="500" placeholder="Add a note or message about this item…" aria-label="Item message"><button class="btn primary" type="submit">Send</button></form>
-        <p class="small">To discuss an item with Nova in ChatGPT, use “Copy item brief” and paste it into our chat.</p><div class="tools"><button class="btn" id="copyBrief" type="button">Copy item brief</button><button class="btn" id="needsMe" type="button">Needs my review</button><button class="btn" id="markDone" type="button">Mark complete</button></div>
-      </div>
-    </section>
-  </main>
-  <section class="card" style="margin-top:14px">
-    <div class="sectionhead"><h2>Project backup</h2><div><button class="btn" id="exportBtn" type="button">Export JSON</button> <label class="btn" for="importFile" style="display:inline-flex;align-items:center">Import JSON</label><input id="importFile" type="file" accept="application/json" class="hidden"></div></div>
-    <p class="small">Export gives you a portable copy of task statuses and item conversations. Import restores it on another device.</p>
-  </section>
-  <div class="footer">Upfront Art Studios • Creative Command Hub • Free-first project workflow</div>
+:root{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html{background:#0c0030;scroll-behavior:smooth}
+body{margin:0;color:#fff;background:radial-gradient(ellipse at 50% 3%,#39085a,#090323 75%);min-height:100dvh}
+a{color:inherit}
+.art{width:100%;max-width:1920px;margin:0 auto;position:relative;overflow:hidden;line-height:0;isolation:isolate}
+.art img{width:100%;height:auto;display:block}
+.hotspot{display:block;position:absolute;z-index:1;overflow:hidden;border-radius:14px;text-indent:-9999px;white-space:nowrap;outline-offset:-3px}
+.hotspot:focus-visible{outline:4px solid #fff;box-shadow:0 0 0 7px #ff28f5}
+@media(hover:hover){.hotspot:hover{background:#ffffff25;box-shadow:inset 0 0 18px #ffffff66}}
+.howto{left:41%;top:21%;width:16.5%;height:23%}.freeplay{left:59%;top:21%;width:17.5%;height:23%}
+.progress{left:77.3%;top:15%;width:21%;height:21%}.award{left:77.8%;top:36%;width:20.3%;height:10%}
+.sketch{left:9.2%;top:46%;width:15.5%;height:24%}.draw{left:25%;top:46%;width:14%;height:24%}.color{left:40%;top:46%;width:13.3%;height:24%}.number{left:54%;top:46%;width:13%;height:24%}
+.podcast{left:67.7%;top:46%;width:15%;height:24%}.book{left:83.3%;top:46%;width:15.5%;height:24%}
+.activities{left:10.4%;top:72.5%;width:27%;height:20%}.toolkit{left:39%;top:72%;width:31%;height:21%}
+.home{left:1%;top:13%;width:7.5%;height:12%}.sideprogress{left:1%;top:25%;width:7.5%;height:10%}.sideawards{left:1%;top:35.5%;width:7.5%;height:10%}
+.offline{left:1%;top:52%;width:7.5%;height:10%}.help{left:1%;top:62%;width:7.5%;height:9%}
+.actions{width:min(1120px,100%);margin:0 auto;padding:clamp(15px,3vw,30px);display:grid;gap:15px}
+.heading{margin:0;font-size:clamp(1.1rem,2.8vw,1.6rem);text-align:center;color:#f7d7ff;text-shadow:0 0 20px #c149ff}
+.buttons{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.button{min-height:60px;display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;font-weight:800;letter-spacing:.01em;padding:12px;border:1px solid #77eaff;border-radius:16px;background:linear-gradient(115deg,#1d267d,#620bb1 56%,#9d117f);box-shadow:0 0 18px #12d5ff66,inset 0 0 12px #ffffff18}
+.button:nth-child(2n){border-color:#ff8ce7;box-shadow:0 0 16px #ee21e360,inset 0 0 12px #ffffff18}
+.button:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.note{font-size:.85rem;color:#d1cce7;text-align:center;line-height:1.5;margin:0}
+footer{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:0 16px 32px;font-size:.875rem}
+footer a{color:#b8faff;text-underline-offset:4px}
+@media(max-width:760px){.buttons{grid-template-columns:repeat(2,minmax(0,1fr))}.button{min-height:64px}.actions{padding:18px 12px}.art img{width:100%}}
+@media(max-width:380px){.buttons{gap:8px}.button{font-size:.87rem;padding:8px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<main>
+<section class="art" aria-label="Luminary Studio neon creative home. Features the approved design with the founders, game modes, levels and six activities.">
+<img src="/assets/luminary-approved-reference.png" width="1536" height="1024" alt="Luminary Studio colorful neon fantasy landing page featuring the founders, How To Challenge, Free Play, progress toward the Master Sketch Artist Award and six creative activities." fetchpriority="high">
+<a class="hotspot home" href="#quick-actions" aria-label="Home, jump to accessible studio actions">Home</a>
+<a class="hotspot sideprogress" href="/studio/?view=learn" aria-label="My Progress">My Progress</a>
+<a class="hotspot sideawards" href="/studio/?view=learn" aria-label="Awards">Awards</a>
+<a class="hotspot offline" href="/studio/" aria-label="Offline studio">Offline studio</a>
+<a class="hotspot help" href="#install" aria-label="Help and iPad install instructions">Help</a>
+<a class="hotspot howto" href="/studio/?view=learn" aria-label="How To Challenge, start learning">How To Challenge</a>
+<a class="hotspot freeplay" href="/studio/?view=studio" aria-label="Free Play, jump in">Free Play</a>
+<a class="hotspot progress" href="/studio/?view=learn" aria-label="View progress">View Progress</a>
+<a class="hotspot award" href="/studio/?view=learn" aria-label="Master Sketch Artist Award">Master Sketch Artist Award</a>
+<a class="hotspot sketch" href="/studio/?view=learn" aria-label="How to Sketch">How to Sketch</a>
+<a class="hotspot draw" href="/studio/?view=studio" aria-label="How to Draw">How to Draw</a>
+<a class="hotspot color" href="/studio/?view=color" aria-label="How to Color">How to Color</a>
+<a class="hotspot number" href="/studio/?view=color" aria-label="Color by Number">Color by Number</a>
+<a class="hotspot podcast" href="/studio/?view=write" aria-label="How to Write a Podcast">How to Write a Podcast</a>
+<a class="hotspot book" href="/studio/?view=write" aria-label="How to Write a Book">How to Write a Book</a>
+<a class="hotspot activities" href="/studio/?view=activities" aria-label="Explore grown-up activities">Activities</a>
+<a class="hotspot toolkit" href="/studio/?view=studio" aria-label="Open your creative toolkit">Creative Toolkit</a>
+</section>
+<section class="actions" id="quick-actions" aria-label="Easy-to-tap creative activities">
+<h1 class="heading">✦ Create your happy place ✦</h1>
+<div class="buttons">
+<a class="button" href="/studio/?view=learn">🎓 How To Challenge</a>
+<a class="button" href="/studio/?view=studio">🎨 Free Play</a>
+<a class="button" href="/studio/?view=color">🌸 Color by Number</a>
+<a class="button" href="/studio/?view=learn">🏆 My Progress</a>
+<a class="button" href="/studio/?view=activities">✨ Fun Activities</a>
+<a class="button" href="/studio/?view=write">📖 Writing Studio</a>
+<a class="button" href="/studio/?view=gallery">💾 My Gallery</a>
+<a class="button" href="/command-hub.html">💠 Creative Command Hub</a>
 </div>
-<script>
-const KEY='upfront-art-hub-v1';
-const statuses={working:'In development',review:'Needs you',testing:'Testing',done:'Complete'};
-const starter=[
-{id:1,title:'Upgrade drawing studio experience',area:'Creative Canvas',status:'working',progress:35,messages:[{who:'Nova',text:'Preserve the working stylus canvas while redesigning the studio around it.'}]},
-{id:2,title:'Build 10 levels / 60 distinct lessons',area:'How-To Challenge',status:'testing',progress:70,messages:[{who:'Build log',text:'60 distinct lesson exercises and completion checks are implemented in v5. Browser DOM interaction tests passed; physical iPad testing is still outstanding.'}]},
-{id:3,title:'Master Sketch Artist Award moment',area:'Achievements',status:'review',progress:25,messages:[{who:'Nova',text:'Design direction: ceremonial completion screen, final award reveal, and certificate unlock.'},{who:'You',text:'Make it feel special and premium.'}]},
-{id:4,title:'Expand adult coloring experiences',area:'Color Studio',status:'working',progress:15,messages:[{who:'Nova',text:'The coloring experience should be a full creative mode, not a single simple activity.'}]},
-{id:5,title:'Free Play mode separation',area:'Experience Design',status:'done',progress:100,messages:[{who:'Nova',text:'Free Play stays lesson-free and score-free so users can simply create.'}]},
-{id:6,title:'iPad install + PWA readiness',area:'Publishing',status:'testing',progress:55,messages:[{who:'Nova',text:'Manifest, icons, offline behavior, and HTTPS install flow are part of this milestone.'}]}
-];
-let state=load(),selected=state.tasks[0]?.id||null,filter='all';
-// Add the verified hosting milestone without overwriting a returning user's edits.
-if(!state.tasks.some(t=>t.id===7||t.title==='Publish Hub and Art Studio to Render')){
- state.tasks.push({id:7,title:'Publish Hub and Art Studio to Render',area:'Publishing',status:'done',progress:100,messages:[{who:'Build log',text:'GitHub repository uploaded and Render static site deployed successfully. iPad Safari and Apple Pencil testing are separate follow-up tasks.'}]});
-}
-function load(){try{const p=JSON.parse(localStorage.getItem(KEY));if(p&&Array.isArray(p.tasks))return p}catch{}return {tasks:starter}}
-function save(){localStorage.setItem(KEY,JSON.stringify(state));document.querySelector('#saveState').textContent='Saved on this device'}
-const $=s=>document.querySelector(s);
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
-function renderStats(){const t=state.tasks;$('#openN').textContent=t.filter(x=>x.status!=='done').length;$('#reviewN').textContent=t.filter(x=>x.status==='review').length;$('#testN').textContent=t.filter(x=>x.status==='testing').length;$('#doneN').textContent=t.filter(x=>x.status==='done').length}
-function renderFilters(){const f=[['all','All'],['working','In development'],['review','Needs you'],['testing','Testing'],['done','Complete']];$('#filters').innerHTML=f.map(([k,v])=>`<button type="button" class="filter ${filter===k?'active':''}" data-f="${k}">${v}</button>`).join('');document.querySelectorAll('[data-f]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.f;render()}))}
-function renderTasks(){const items=state.tasks.filter(t=>filter==='all'||t.status===filter);$('#taskList').innerHTML=items.length?items.map(t=>`<button type="button" class="task ${t.id===selected?'sel':''}" data-id="${t.id}"><div class="tasktop"><div><div class="meta">${esc(t.area)}</div><div class="tasktitle">${esc(t.title)}</div></div><span class="tag">${esc(statuses[t.status]||t.status)}</span></div><div class="pbar"><i style="width:${Math.max(0,Math.min(100,t.progress||0))}%"></i></div></button>`).join(''):'<div class="small">No items in this view.</div>';document.querySelectorAll('[data-id]').forEach(b=>b.addEventListener('click',()=>{selected=Number(b.dataset.id);render()}))}
-function renderDetail(){const t=state.tasks.find(x=>x.id===selected);if(!t){$('#empty').classList.remove('hidden');$('#detail').classList.add('hidden');return}$('#empty').classList.add('hidden');$('#detail').classList.remove('hidden');$('#area').textContent=t.area;$('#title').textContent=t.title;$('#status').innerHTML=Object.entries(statuses).map(([k,v])=>`<option value="${k}" ${t.status===k?'selected':''}>${v}</option>`).join('');$('#progress').value=t.progress||0;$('#progressLabel').textContent=t.progress||0;$('#msgCount').textContent=`${t.messages.length} message${t.messages.length===1?'':'s'}`;$('#chat').innerHTML=t.messages.map(m=>`<div class="msg ${m.who==='You'?'you':''}"><b>${esc(m.who)}</b><p>${esc(m.text)}</p></div>`).join('')||'<div class="small">No conversation yet.</div>'}
-function render(){renderStats();renderFilters();renderTasks();renderDetail();save()}
-$('#addForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#newTitle').value.trim();if(!v)return;const id=Math.max(0,...state.tasks.map(t=>t.id))+1;state.tasks.unshift({id,title:v,area:'New item',status:'review',progress:0,messages:[{who:'You',text:'Added from the Creative Command Hub.'}]});selected=id;filter='all';$('#newTitle').value='';render()});
-$('#status').addEventListener('change',e=>{const t=state.tasks.find(x=>x.id===selected);if(t){t.status=e.target.value;render()}});
-$('#progress').addEventListener('input',e=>{$('#progressLabel').textContent=e.target.value});$('#progress').addEventListener('change',e=>{const t=state.tasks.find(x=>x.id===selected);if(t){t.progress=Number(e.target.value);render()}});
-$('#chatForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#chatInput').value.trim();const t=state.tasks.find(x=>x.id===selected);if(!v||!t)return;t.messages.push({who:'You',text:v});$('#chatInput').value='';render()});
-$('#copyBrief').addEventListener('click',async()=>{const t=state.tasks.find(x=>x.id===selected);if(!t)return;const brief=`Upfront Art Studios — ${t.title}\nArea: ${t.area}\nStatus: ${statuses[t.status]}\nProgress: ${t.progress}%\nNotes:\n${t.messages.map(m=>m.who+': '+m.text).join('\n')}`;try{await navigator.clipboard.writeText(brief);$('#saveState').textContent='Item brief copied — paste in ChatGPT';}catch(e){window.prompt('Copy this item brief:',brief)}});
-$('#needsMe').addEventListener('click' ,()=>{const t=state.tasks.find(x=>x.id===selected);if(t){t.status='review';render()}});$('#markDone').addEventListener('click',()=>{const t=state.tasks.find(x=>x.id===selected);if(t){t.status='done';t.progress=100;render()}});
-$('#exportBtn').addEventListener('click',()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.download='upfront-art-hub-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
-$('#importFile').addEventListener('change',async e=>{
- const f=e.target.files?.[0];if(!f)return;
- try{
-  const p=JSON.parse(await f.text());
-  if(!p||!Array.isArray(p.tasks)||!p.tasks.every(t=>t&&Number.isSafeInteger(t.id)&&typeof t.title==='string'&&typeof t.area==='string'&&Array.isArray(t.messages)&&t.messages.every(m=>m&&typeof m.who==='string'&&typeof m.text==='string')))throw new Error('Invalid project backup');
-  if(!confirm('Import this project backup? It will replace the current project board and notes on this device. Export your current backup first if you want to keep it.'))return;
-  state=p;selected=state.tasks[0]?.id||null;filter='all';render();
- }catch{alert('That backup file could not be imported. Please choose a valid Hub backup JSON file.')}
- finally{e.target.value='';}
-});
-if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});render();
-</script>
-</body>
-</html>
+<p class="note" id="install">📱 On an iPad or iPhone, open this page in Safari, tap Share, then Add to Home Screen. On a small screen, the full original artwork is preserved above, with comfortable touch-sized controls below. Artwork and progress save on this device; use studio backups to transfer them to another device.</p>
+</section>
+</main>
+<footer><a href="/command-hub.html">Creative Command Hub</a><a href="/studio/">Open Art Studio</a></footer>
+</body></html>
