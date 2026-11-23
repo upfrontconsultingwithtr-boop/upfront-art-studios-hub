@@ -45,6 +45,7 @@
    const cards = board().cards;
    byId('vision-empty').hidden = cards.length > 0;
    byId('vision-print').disabled = !cards.length;
+   byId('vision-download').disabled = !cards.length;
    byId('vision-cards').replaceChildren(...cards.map((card, index) => {
      const tile = document.createElement('div');
      tile.className = 'vision-tile';
@@ -154,5 +155,17 @@
    save();
  };
  byId('vision-print').onclick = () => window.print();
+ byId('vision-download').onclick = async () => {
+   const button = byId('vision-download');
+   button.disabled = true;
+   try {
+     await downloadVisionPdf(board());
+     status.textContent = 'Your PDF is ready.';
+   } catch {
+     status.textContent = 'The PDF could not be created. Try the print button.';
+   } finally {
+     button.disabled = !board().cards.length;
+   }
+ };
  render();
 })();
