@@ -64,3 +64,9 @@ body{background:radial-gradient(ellipse at 75% 0%,#35215d 0%,transparent 40%),ra
 .studio-backup{padding:18px;margin:26px 0;border:1px solid #427687;border-radius:16px;background:#102e3b}
 .studio-backup h3{margin:0 0 5px}.backup-label{display:inline-flex;align-items:center;cursor:pointer;min-height:44px;margin-left:8px}
 @media(max-width:500px){.backup-label{margin:8px 0 0}.color-designs{gap:6px}.color-design{font-size:12px}}
+
+/* v7: visible iPad installation guide for Safari, where beforeinstallprompt is unavailable. */
+.install-guide{margin:18px 0 0;padding:13px 17px;border:1px solid #368a90;border-radius:16px;background:#102d3f;color:#f1fbff}
+.install-guide summary{cursor:pointer;font-weight:800;color:#8ff4e6;line-height:1.6}
+.install-guide ol{margin:13px 0;padding-left:23px}.install-guide li{margin:9px 0}.install-guide p{font-size:13px;color:#d0e7ed}
+.install-guide:focus-within{border-color:#7de9dd}

@@ -485,18 +485,25 @@ renderLesson();
 // V6: non-destructive autosave of the current canvas draft (device-local IndexedDB).
 const studioDB = new Promise(resolve=>{
  if(!('indexedDB' in window)){resolve(null);return;}
- const request=indexedDB.open('upfront-art-drafts',1);
- request.onupgradeneeded=()=>{if(!request.result.objectStoreNames.contains('art'))request.result.createObjectStore('art');};
- request.onsuccess=()=>resolve(request.result);request.onerror=()=>resolve(null);
+ // Safari private browsing and restricted previews may throw synchronously.
+ try{
+  const request=indexedDB.open('upfront-art-drafts',1);
+  request.onupgradeneeded=()=>{if(!request.result.objectStoreNames.contains('art'))request.result.createObjectStore('art');};
+  request.onsuccess=()=>resolve(request.result);request.onerror=()=>resolve(null);
+ }catch(e){resolve(null);}
 });
 function draftStore(mode,action){return studioDB.then(db=>new Promise(resolve=>{
  if(!db){resolve(null);return;}
- try{const tx=db.transaction('art',mode),req=action(tx.objectStore('art'));req.onsuccess=()=>resolve(req.result);req.onerror=()=>resolve(null);}catch(e){resolve(null)}
+ try{const tx=db.transaction('art',mode),req=action(tx.objectStore('art'));req.onsuccess=()=>resolve(mode==='readwrite'?true:req.result);req.onerror=()=>resolve(null);}catch(e){resolve(null)}
 }));}
 let autosaveTimer;
 function saveCanvasDraft(){clearTimeout(autosaveTimer);autosaveTimer=setTimeout(()=>{
- try{const png=canvas.toDataURL('image/png');draftStore('readwrite',store=>store.put(png,'current'));$('#draftStatus').textContent='Canvas draft saved on this device';}
- catch(e){$('#draftStatus').textContent='Draft could not be saved. Export a PNG to keep your artwork.'}
+ try{
+  const png=canvas.toDataURL('image/png');
+  draftStore('readwrite',store=>store.put(png,'current')).then(saved=>{
+   $('#draftStatus').textContent=saved?'Canvas draft saved on this device':'Automatic draft saving is unavailable here. Export a PNG to keep your artwork.';
+  });
+ }catch(e){$('#draftStatus').textContent='Draft could not be saved. Export a PNG to keep your artwork.'}
 },250);}
 let draftLoaded=false;
 function loadCanvasDraft(){

@@ -1,4 +1,4 @@
-# Upfront Art Studios + Creative Command Hub (v6)
+# Upfront Art Studios + Creative Command Hub (v7)
 
 **This release is a self-contained static website.** No paid dependencies, backend, account, or purchase flow.
 
@@ -26,3 +26,12 @@ After HTTPS deployment, visit the site in Safari, use Share → Add to Home Scre
 ## Important limitations
 
 **No real ChatGPT two-way synchronization yet.** Hub notes, lesson progress, drawings, and writing are stored only on the device/browser. Export and import allow manual transfer. This release does not have a shared database, accounts, or remote collaboration. Physical iPad/Pencil testing is still required. Don't rely on local storage as your only copy of important work: export backups.
+
+## v7 updates
+
+- Live-hosting milestone is included on the Hub board without overwriting existing local tasks.
+- Both Hub and Studio include Safari-specific Add to Home Screen instructions, no ZIP needed.
+- Hub backup import now validates the file and asks before replacing the user's local project board.
+- Offline caches versioned to v7 so updates are installed on return visits.
+
+Deployment status was reported live by Render; physical iPad/Pencil and public browser end-to-end tests remain outstanding.
