@@ -71,7 +71,7 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 </div>
 <script>
 const KEY='upfront-art-hub-v1';
-const statuses={working:'In development',review:'Needs you',testing:'Testing',done:'Complete'};
+const statuses={planned:'Planned',working:'In development',review:'Needs you',testing:'Testing',done:'Complete'};
 const starter=[
 {id:1,title:'Upgrade drawing studio experience',area:'Creative Canvas',status:'working',progress:35,messages:[{who:'Nova',text:'Preserve the working stylus canvas while redesigning the studio around it.'}]},
 {id:2,title:'Build 10 levels / 60 distinct lessons',area:'How-To Challenge',status:'testing',progress:70,messages:[{who:'Build log',text:'60 distinct lesson exercises and completion checks are implemented in v5. Browser DOM interaction tests passed; physical iPad testing is still outstanding.'}]},
@@ -90,10 +90,25 @@ function save(){localStorage.setItem(KEY,JSON.stringify(state));document.querySe
 const $=s=>document.querySelector(s);
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
 function renderStats(){const t=state.tasks;$('#openN').textContent=t.filter(x=>x.status!=='done').length;$('#reviewN').textContent=t.filter(x=>x.status==='review').length;$('#testN').textContent=t.filter(x=>x.status==='testing').length;$('#doneN').textContent=t.filter(x=>x.status==='done').length}
-function renderFilters(){const f=[['all','All'],['working','In development'],['review','Needs you'],['testing','Testing'],['done','Complete']];$('#filters').innerHTML=f.map(([k,v])=>`<button type="button" class="filter ${filter===k?'active':''}" data-f="${k}">${v}</button>`).join('');document.querySelectorAll('[data-f]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.f;render()}))}
+function renderFilters(){const f=[['all','All'],['planned','Planned'],['working','In development'],['review','Needs you'],['testing','Testing'],['done','Complete']];$('#filters').innerHTML=f.map(([k,v])=>`<button type="button" class="filter ${filter===k?'active':''}" data-f="${k}">${v}</button>`).join('');document.querySelectorAll('[data-f]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.f;render()}))}
 function renderTasks(){const items=state.tasks.filter(t=>filter==='all'||t.status===filter);$('#taskList').innerHTML=items.length?items.map(t=>`<button type="button" class="task ${t.id===selected?'sel':''}" data-id="${t.id}"><div class="tasktop"><div><div class="meta">${esc(t.area)}</div><div class="tasktitle">${esc(t.title)}</div></div><span class="tag">${esc(statuses[t.status]||t.status)}</span></div><div class="pbar"><i style="width:${Math.max(0,Math.min(100,t.progress||0))}%"></i></div></button>`).join(''):'<div class="small">No items in this view.</div>';document.querySelectorAll('[data-id]').forEach(b=>b.addEventListener('click',()=>{selected=Number(b.dataset.id);render()}))}
 function renderDetail(){const t=state.tasks.find(x=>x.id===selected);if(!t){$('#empty').classList.remove('hidden');$('#detail').classList.add('hidden');return}$('#empty').classList.add('hidden');$('#detail').classList.remove('hidden');$('#area').textContent=t.area;$('#title').textContent=t.title;$('#status').innerHTML=Object.entries(statuses).map(([k,v])=>`<option value="${k}" ${t.status===k?'selected':''}>${v}</option>`).join('');$('#progress').value=t.progress||0;$('#progressLabel').textContent=t.progress||0;$('#msgCount').textContent=`${t.messages.length} message${t.messages.length===1?'':'s'}`;$('#chat').innerHTML=t.messages.map(m=>`<div class="msg ${m.who==='You'?'you':''}"><b>${esc(m.who)}</b><p>${esc(m.text)}</p></div>`).join('')||'<div class="small">No conversation yet.</div>'}
-function render(){renderStats();renderFilters();renderTasks();renderDetail();save()}
+const plannedTasks = [
+ {title:'Hub-to-ChatGPT Sync',request:'After I write a message or reply on a Hub item, pressing Sync should send it to Nova immediately and trigger a turn in the Build approved PWA starter conversation.',details:'Include the selected item context. Show delivery confirmation or a retryable error and avoid duplicate sends. Check for a supported free integration first.'},
+ {title:'Monitor the Hub and maintain the to-do list',request:'Watch the Hub for new messages and changes. Keep the to-do list, task assignments, and statuses current.',details:'Use a supported free connection that can read Hub activity and update task records. Confirm the updates against the project work.'},
+ {title:'Archive completed tasks and conversations',request:'When a task is done, move it and its conversation into an Archive History bucket for future reference.',details:'Keep the original task title, final status, completion date, and full thread. Make completed items easy to find without cluttering the active list.'}
+];
+function ensurePlannedTasks(){
+ for(const {title,request,details} of plannedTasks){
+  if(state.tasks.some(task=>task.title===title))continue;
+  const id=Math.max(0,...state.tasks.map(task=>task.id))+1;
+  state.tasks.push({id,title,area:'Creative Command Hub',status:'planned',progress:0,messages:[
+   {who:'You',text:request},
+   {who:'Nova',text:details}
+  ]});
+ }
+}
+function render(){ensurePlannedTasks();renderStats();renderFilters();renderTasks();renderDetail();save()}
 $('#addForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#newTitle').value.trim();if(!v)return;const id=Math.max(0,...state.tasks.map(t=>t.id))+1;state.tasks.unshift({id,title:v,area:'New item',status:'review',progress:0,messages:[{who:'You',text:'Added from the Creative Command Hub.'}]});selected=id;filter='all';$('#newTitle').value='';render()});
 $('#status').addEventListener('change',e=>{const t=state.tasks.find(x=>x.id===selected);if(t){t.status=e.target.value;render()}});
 $('#progress').addEventListener('input',e=>{$('#progressLabel').textContent=e.target.value});$('#progress').addEventListener('change',e=>{const t=state.tasks.find(x=>x.id===selected);if(t){t.progress=Number(e.target.value);render()}});

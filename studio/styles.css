@@ -91,8 +91,21 @@ main{max-width:1700px;margin-left:112px;padding:0 clamp(16px,2.3vw,42px)}
 .neon-frame{position:relative;border:2px solid var(--edge,#f65efa);border-radius:26px;background:linear-gradient(150deg,#160c49f5,#08062ce8 65%,#270544ed);box-shadow:inset 0 0 18px #ffffff12,0 0 9px var(--edge),0 0 22px var(--edge-glow,#e73ff077);color:#fff}
 .pink-frame{--edge:#f54dff;--edge-glow:#f326ee77}.blue-frame{--edge:#20cfff;--edge-glow:#165cff99}.gold-frame{--edge:#ffb44b;--edge-glow:#ffb44b66}
 .dream-stage{display:grid;grid-template-columns:minmax(210px,1.22fr) minmax(165px,.82fr) minmax(165px,.82fr) minmax(190px,.98fr);gap:16px;align-items:stretch;margin:8px 0 20px;min-height:330px}
-.dream-portrait{overflow:hidden;min-height:330px}.dream-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 24%;display:block}.dream-portrait:after{content:"";position:absolute;inset:60% 0 0;background:linear-gradient(transparent,#10052dba);pointer-events:none}
-.dream-portrait .portrait-caption{z-index:1;bottom:12px;right:12px;font:italic 19px Georgia,serif;color:#ffe2ff;text-shadow:0 0 9px #ff25d5}
+.dream-stage { position: relative; isolation: isolate; }
+.dream-stage > .dream-choice:first-of-type { grid-column: 2; }
+.dream-portrait {
+  position: absolute;
+  z-index: -1;
+  top: -3rem;
+  left: -1rem;
+  width: 34%;
+  height: calc(100% + 4rem);
+  object-fit: cover;
+  object-position: center top;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 66% 65% at 46% 43%, #000 55%, transparent 96%);
+  mask-image: radial-gradient(ellipse 66% 65% at 46% 43%, #000 55%, transparent 96%);
+}
 .dream-choice{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;text-align:center;padding:20px 10px;min-width:0;transition:transform .15s,box-shadow .15s}
 .dream-choice:hover,.dream-choice:focus-visible{transform:translateY(-4px);box-shadow:0 0 30px var(--edge)}.choice-emoji{font-size:60px;filter:drop-shadow(0 0 12px #e32cf4)}
 .dream-choice strong{font:italic 700 clamp(27px,2.6vw,43px)/1.05 Georgia,serif;text-shadow:0 0 14px #ef57ff}.dream-choice>span:not(.choice-emoji):not(.choice-cta){font-size:14px;font-weight:700}
@@ -112,9 +125,129 @@ main{max-width:1700px;margin-left:112px;padding:0 clamp(16px,2.3vw,42px)}
 .primary{background:linear-gradient(110deg,#f02ed9,#355bff,#00d5f5);border:1px solid #ffb6fa;color:#fff;box-shadow:0 0 13px #ec4afc66}.secondary{background:#210d51;border:1px solid #b56bff;color:#fff}.pill{background:#37165b;color:#ffe0fa}
 .stat,.feature,.level,.activity,.writing-sidebar,.writing-editor{background:linear-gradient(135deg,#210a4e,#0b0b36);border-color:#934de4;box-shadow:inset 0 0 18px #7a28cc24}.level.selected,.lesson-panel,.prompt-box{background:#351360;border-color:#f366f5}.level .num{background:#6726ad}.stat strong{color:#ffb8f9}.canvas-wrap,.color-art{border-color:#ee54ff;box-shadow:0 0 24px #c630f566}.toast{background:#301052;border-color:#fc74ee}.award-status{background:#270c4d;border-color:#ef63f8}
 .install-guide{border-color:#9e4de7;background:#17093a}.install-guide summary{color:#ffd4ff}.hub-return{white-space:nowrap}
-@media(max-width:1380px){.dream-stage{grid-template-columns:1.1fr 1fr 1fr;min-height:285px}.dream-progress{grid-column:1/-1;display:grid;grid-template-columns:1fr 136px 1fr 1fr;min-height:160px;align-items:center}.award-teaser{border:0;border-left:1px solid #ffc56488;padding:0 0 0 12px}.widget-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.dream-lower{grid-template-columns:1fr 1fr}.dream-inspiration{grid-column:1/-1;min-height:110px!important}.dream-portrait{min-height:300px}}
-@media(max-width:900px){.topbar{padding-left:20px}.tabs{position:sticky;top:0;left:auto;bottom:auto;max-height:none;width:auto;display:flex;flex-direction:row;overflow-x:auto;overflow-y:hidden;border-radius:0;margin:0 -16px;padding:7px 12px;gap:7px;box-shadow:0 2px 10px #d723ff44}.tab{flex:0 0 auto;min-height:56px;min-width:76px;font-size:10px}.tab span{font-size:19px}main{margin-left:auto}.dream-stage{grid-template-columns:1fr 1fr}.dream-portrait{grid-row:span 2;min-height:390px}.dream-progress{grid-column:2;display:flex;min-height:180px}.dream-choice{min-height:190px}.dream-stage>.dream-choice:nth-of-type(3){grid-column:2}.dream-progress{grid-column:1/-1;display:grid;grid-template-columns:1fr 136px 1fr;gap:10px}.award-teaser{grid-column:1/-1;border:0;border-top:1px solid #ffc56488;padding-top:8px}.dream-lower{grid-template-columns:1fr}.dream-inspiration{grid-column:auto}.dream-title{font-size:clamp(45px,8vw,80px)}}
-@media(max-width:580px){.topbar{padding:10px 12px;gap:8px;flex-wrap:wrap}.brandmark{width:40px;height:40px;font-size:23px}.brand{font-size:28px}.byline{font-size:9px;max-width:280px}.hub-return{margin-left:0;order:3;font-size:11px;padding:6px 10px}.dream-slogan{font-size:16px}.dream-title{font-size:clamp(37px,10vw,61px)}.dream-star{font-size:18px}.dream-heading p{font-size:11px}.dream-tagline{font-size:12px}.dream-tagline span{padding:0 3px}.dream-stage{grid-template-columns:1fr 1fr;gap:10px}.dream-portrait{grid-column:1/-1;grid-row:auto;height:255px;min-height:0}.dream-portrait img{object-position:center 30%}.dream-choice{min-height:215px;padding:12px 7px;gap:10px}.choice-emoji{font-size:38px}.dream-choice strong{font-size:27px}.dream-choice>span:not(.choice-emoji):not(.choice-cta){font-size:11px}.choice-cta{font-size:12px;padding:9px 8px}.dream-stage>.dream-choice:nth-of-type(3){grid-column:auto}.dream-progress{grid-column:1/-1;display:flex;min-height:0}.progress-ring{width:110px}.award-teaser{border-top:1px solid #ffc56488;padding-top:9px}.widget-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.widget{min-height:160px;padding:12px 8px}.widget span{font-size:32px}.widget b{font-size:16px}.widget small{font-size:10px}.dream-lower>div{padding:15px}.dream-bottom{border-radius:15px;justify-content:center}.dream-section-title{font-size:19px}}
+@media(max-width:1380px){.dream-stage{grid-template-columns:1.1fr 1fr 1fr;min-height:285px}.dream-progress{grid-column:1/-1;display:grid;grid-template-columns:1fr 136px 1fr 1fr;min-height:160px;align-items:center}.award-teaser{border:0;border-left:1px solid #ffc56488;padding:0 0 0 12px}.widget-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.dream-lower{grid-template-columns:1fr 1fr}.dream-inspiration{grid-column:1/-1;min-height:110px!important}.dream-portrait{height:calc(100% - 7rem);width:38%}}
+@media(max-width:900px){.topbar{padding-left:20px}.tabs{position:sticky;top:0;left:auto;bottom:auto;max-height:none;width:auto;display:flex;flex-direction:row;overflow-x:auto;overflow-y:hidden;border-radius:0;margin:0 -16px;padding:7px 12px;gap:7px;box-shadow:0 2px 10px #d723ff44}.tab{flex:0 0 auto;min-height:56px;min-width:76px;font-size:10px}.tab span{font-size:19px}main{margin-left:auto}.dream-stage{grid-template-columns:1.1fr 1fr 1fr}.dream-progress{grid-column:2;display:flex;min-height:180px}.dream-choice{min-height:190px}.dream-progress{grid-column:1/-1;display:grid;grid-template-columns:1fr 136px 1fr;gap:10px}.award-teaser{grid-column:1/-1;border:0;border-top:1px solid #ffc56488;padding-top:8px}.dream-lower{grid-template-columns:1fr}.dream-inspiration{grid-column:auto}.dream-title{font-size:clamp(45px,8vw,80px)}}
+@media(max-width:580px){.topbar{padding:10px 12px;gap:8px;flex-wrap:wrap}.brandmark{width:40px;height:40px;font-size:23px}.brand{font-size:28px}.byline{font-size:9px;max-width:280px}.hub-return{margin-left:0;order:3;font-size:11px;padding:6px 10px}.dream-slogan{font-size:16px}.dream-title{font-size:clamp(37px,10vw,61px)}.dream-star{font-size:18px}.dream-heading p{font-size:11px}.dream-tagline{font-size:12px}.dream-tagline span{padding:0 3px}.dream-stage{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding-top:clamp(190px,62vw,315px)}.dream-stage > .dream-choice:first-of-type{grid-column:auto}.dream-portrait{top:-1.5rem;left:0;width:100%;height:clamp(225px,72vw,360px);object-position:center 23%}.dream-choice{min-height:215px;padding:12px 7px;gap:10px}.choice-emoji{font-size:38px}.dream-choice strong{font-size:27px}.dream-choice>span:not(.choice-emoji):not(.choice-cta){font-size:11px}.choice-cta{font-size:12px;padding:9px 8px}.dream-progress{grid-column:1/-1;display:flex;min-height:0}.progress-ring{width:110px}.award-teaser{border-top:1px solid #ffc56488;padding-top:9px}.widget-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.widget{min-height:160px;padding:12px 8px}.widget span{font-size:32px}.widget b{font-size:16px}.widget small{font-size:10px}.dream-lower>div{padding:15px}.dream-bottom{border-radius:15px;justify-content:center}.dream-section-title{font-size:19px}}
 @media(prefers-reduced-motion:reduce){.dream-choice,.widget{transition:none}}
 
 .progress-micro{font-size:10px;color:#f6d9ff;line-height:1.3}
+
+.award-status h3 { margin: 0; color: #f9e4b4; }
+.award-status p { margin: .5rem 0 0; }
+.award-ceremony {
+  box-sizing: border-box;
+  width: min(44rem, calc(100% - 1.5rem));
+  max-height: calc(100% - 1.5rem);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid #c39b64;
+  border-radius: 24px;
+  background: #170e2b;
+  color: #fff6ed;
+  box-shadow: 0 20px 80px #05030c, 0 0 36px #7941ad70;
+}
+.award-ceremony::backdrop { background: #080514df; }
+.award-ceremony[open] { animation: award-arrival .55s ease-out both; }
+@keyframes award-arrival {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .award-ceremony[open] { animation: none; }
+}
+.ceremony-stage {
+  position: relative;
+  padding: clamp(2.5rem, 8vw, 4rem) clamp(1rem, 7vw, 4rem) 2rem;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 24%, #543269, transparent 65%), #170e2b;
+}
+.award-close {
+  position: absolute;
+  top: .6rem;
+  right: .6rem;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #ae8ac8;
+  border-radius: 50%;
+  background: #170e2b;
+  color: #fff6ed;
+  font-size: 1.5rem;
+}
+.award-medal {
+  display: grid;
+  place-items: center;
+  width: 6rem;
+  aspect-ratio: 1;
+  margin: 0 auto 1.5rem;
+  border: 6px double #f2d19a;
+  border-radius: 50%;
+  color: #fff0bd;
+  background: radial-gradient(circle, #7b4c82, #261634 70%);
+  box-shadow: 0 0 35px #f2d19a55;
+  font-size: 3.5rem;
+}
+.award-kicker {
+  font-weight: 700;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.ceremony-stage h2, .award-certificate h2 {
+  margin: .55rem auto;
+  max-width: 18ch;
+  font: 500 clamp(1.8rem, 7vw, 3.5rem)/1.04 Georgia, serif;
+}
+.ceremony-stage h2 { color: #ffedc1; }
+.award-message { margin: 1rem auto 1.6rem; max-width: 42ch; line-height: 1.55; }
+.award-note { margin: .7rem 0 0; color: #dfcbe8; font-size: .9rem; }
+.certificate-stage { padding: clamp(.75rem, 4vw, 1.5rem); }
+.award-certificate {
+  margin: 0;
+  padding: clamp(1rem, 5vw, 2.5rem);
+  border: 7px double #a67842;
+  background: #fffaf1;
+  color: #351c45;
+  text-align: center;
+  font: 1rem/1.4 Georgia, serif;
+}
+.award-certificate p { margin: .65em 0; }
+.certificate-seal { font-size: 1.9rem; color: #81592f; }
+.award-certificate .certificate-recipient {
+  font-size: clamp(1.3rem, 5vw, 2rem);
+  font-style: italic;
+  overflow-wrap: anywhere;
+}
+.certificate-controls { margin-top: 1rem; }
+.certificate-controls input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: .35rem 0 .85rem;
+  font-size: 1rem;
+}
+.certificate-actions { display: flex; flex-wrap: wrap; gap: .55rem; }
+@media print {
+  @page award-certificate { size: landscape; margin: 14mm; }
+  body:has(#awardCeremony[open] #certificateStage:not([hidden])) {
+    display: block;
+    margin: 0;
+    background: white;
+  }
+  body:has(#awardCeremony[open] #certificateStage:not([hidden])) > :not(#awardCeremony),
+  #awardCeremony[open] .certificate-controls { display: none !important; }
+  #awardCeremony[open]:has(#certificateStage:not([hidden])) {
+    position: static;
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: white;
+    box-shadow: none;
+    animation: none;
+  }
+  #awardCeremony::backdrop { display: none; }
+  #awardCeremony .certificate-stage { padding: 0; }
+  #awardCertificate { page: award-certificate; break-inside: avoid; padding: 14mm; }
+}
