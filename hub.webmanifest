@@ -1,0 +1,22 @@
+{
+  "name": "Luminary Creative Command Hub",
+  "short_name": "Luminary Hub",
+  "start_url": "./command-hub.html",
+  "display": "standalone",
+  "background_color": "#08031c",
+  "theme_color": "#15043e",
+  "description": "Project hub for Upfront Art Studios.",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "id": "./command-hub.html"
+}
