@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17152b">
+<meta name="description" content="Upfront Art Studios — a creative studio for sketching, drawing, coloring and learning.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Upfront Art Studios">
+<link rel="stylesheet" href="styles.css">
+<title>Upfront Art Studios</title>
+</head>
+<body>
+<header class="topbar">
+  <div class="brandmark">✦</div>
+  <div><div class="brand">Upfront Art Studios</div><div class="byline">by Upfront Consulting with Tiff &amp; Reco LLC</div></div>
+  <a class="hub-return" href="../">← Creative Command Hub</a><button id="installBtn" class="quiet" hidden>Install app</button>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy"><div class="eyebrow">✦ YOUR PERSONAL CREATIVE UNIVERSE</div><h1>Sketch it.<br><em>Color it. Love it.</em></h1><p>Welcome to a creative world where imagination takes center stage. Explore at your pace, learn new skills, or make something uniquely yours.</p><div class="hero-actions"><button class="primary" data-view="learn">✦ Start the Challenge</button><button class="secondary" data-view="studio">✎ Enter Free Play</button></div><div class="hero-chips"><span>✦ 10 levels · 60 lessons</span><span>♡ Made for grown-up creativity</span><span>✧ Offline-ready after first visit</span></div></div>
+    <div class="hero-portrait"><img src="founders.webp" alt="Smiling creative studio founders wearing sunglasses"><div class="portrait-caption">Create your happy place ♡</div></div>
+  </section>
+
+  <nav class="tabs" aria-label="Main navigation">
+    <button class="tab active" data-view="home">Home</button>
+    <button class="tab" data-view="learn">How To</button>
+    <button class="tab" data-view="studio">Free Play</button>
+    <button class="tab" data-view="color">Color by Number</button>
+    <button class="tab" data-view="activities">Activities</button><button class="tab" data-view="write">Write &amp; Create</button><button class="tab" data-view="gallery">My Gallery</button>
+  </nav>
+
+  <section id="home" class="view active">
+    <div class="section-head"><div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h2>Your creative journey</h2></div><span class="pill">Private · on this device</span></div>
+    <div class="stats">
+      <article class="stat"><strong id="progressCount">0</strong><span>lessons completed</span></article>
+      <article class="stat"><strong id="levelCount">1 / 10</strong><span>current level</span></article>
+      <article class="stat"><strong>∞</strong><span>ways to create</span></article>
+    </div>
+    <h3>Explore your creative universe</h3>
+    <div class="feature-grid">
+      <button class="feature" data-view="learn"><span class="feature-icon">✎</span><b>How To Challenge</b><small>Build skills one friendly lesson at a time.</small></button>
+      <button class="feature" data-view="studio"><span class="feature-icon">✧</span><b>Free Play Studio</b><small>No scores. No pressure. Just make art.</small></button>
+      <button class="feature" data-view="color"><span class="feature-icon">▧</span><b>Color by Number</b><small>Relax with a simple color activity.</small></button>
+      <button class="feature" data-view="activities"><span class="feature-icon">♡</span><b>Creative Activities</b><small>Try a fresh idea whenever you like.</small></button>
+    </div>
+    <div class="widget-grid" aria-label="Creative widgets">
+      <button class="widget" data-widget="sketch"><span>✎</span><b>How to Sketch</b><small>Guided linework and technique</small></button>
+      <button class="widget" data-widget="draw"><span>🦋</span><b>How to Draw</b><small>Turn ideas into illustrations</small></button>
+      <button class="widget" data-widget="paint"><span>🎨</span><b>How to Color</b><small>Explore color and mood</small></button>
+      <button class="widget" data-view="color"><span>✿</span><b>Color by Number</b><small>Tap to fill and unwind</small></button>
+      <button class="widget" data-widget="podcast"><span>🎙</span><b>Write a Podcast</b><small>Shape your voice and story</small></button>
+      <button class="widget" data-widget="book"><span>📖</span><b>Write a Book</b><small>Bring your story to life</small></button>
+    </div>
+    <p class="note">Your work is stored locally in this browser on this device. Cross-device sync is not enabled in this free starter build.</p>
+  </section>
+
+  <section id="learn" class="view">
+    <div class="eyebrow">HOW TO CHALLENGE</div><h2>60 original lessons. One masterpiece.</h2>
+    <p class="muted">Choose a lesson with its own objective, exercise and completion check. Practice on the canvas and track your progress at your own pace.</p>
+    <div id="levels" class="levels"></div><div class="award-status" id="awardStatus" aria-live="polite"></div>
+    <div id="lessonPanel" class="lesson-panel">
+      <div class="eyebrow">YOUR FIRST LESSON</div><h3>Confident Lines · Lesson 1</h3>
+      <p>Draw five slow, steady lines. Try changing the length and direction. Notice how your hand feels when you relax your grip.</p>
+      <button class="primary" id="completeLesson">Mark lesson complete</button>
+    </div>
+  </section>
+
+  <section id="studio" class="view">
+    <div class="section-head"><div><div class="eyebrow">FREE PLAY</div><h2>Your canvas, your rules</h2></div><span class="pill">No scores</span></div>
+    <div class="toolbar">
+      <label>Color <input id="ink" type="color" value="#28223d"></label>
+      <label>Size <input id="size" type="range" min="1" max="28" value="5"></label>
+      <label class="check"><input id="mirror" type="checkbox"> Mirror drawing</label>
+      <label>Brush <select id="brushStyle"><option value="round">Classic</option><option value="glow">Neon glow</option><option value="marker">Marker</option></select></label>
+      <button id="rainbow" class="secondary">Surprise color ✨</button>
+      <button id="eraser" class="secondary">Eraser</button>
+      <button id="undo" class="secondary">Undo</button>
+      <button id="clear" class="secondary">Clear</button>
+      <button id="save" class="primary">Save to Gallery</button><button id="exportArt" class="secondary">Export PNG</button>
+    </div>
+    <div class="creative-guides">
+      <label for="guideSelect">Practice guide</label>
+      <select id="guideSelect"><option value="none">Blank canvas</option><option value="lines">Confident lines</option><option value="shapes">Shapes &amp; forms</option><option value="flower">Botanical flower</option><option value="face">Face proportions</option><option value="perspective">One-point perspective</option></select>
+      <label class="check"><input type="checkbox" id="showGuide" checked> Show guide</label>
+      <button id="downloadWithGuide" class="secondary">Export with guide</button>
+    </div>
+    <p id="guideHint" class="note">Choose a guide to practice tracing or sketching beside the reference. Guides are not included in your saved artwork.</p>
+    <p id="draftStatus" class="note" aria-live="polite">Your canvas draft saves automatically on this device.</p><div class="canvas-wrap"><canvas id="guideCanvas" aria-hidden="true"></canvas><canvas id="drawCanvas" aria-label="Drawing canvas"></canvas></div>
+    <p class="note">Use a finger, mouse, or stylus. Pressure-sensitive thickness works on supported styluses and browsers; otherwise the selected brush size is used.</p>
+    <div id="savedGallery" class="gallery"></div>
+  </section>
+
+  <section id="color" class="view">
+    <div class="eyebrow">COLOR BY NUMBER</div><h2>A little color, a little calm.</h2>
+    <p class="muted">Choose a number, then tap a matching region in the picture.</p>
+    <div class="color-designs" role="group" aria-label="Choose coloring picture">
+      <button type="button" class="secondary color-design selected" data-design="flower">✿ Bloom</button>
+      <button type="button" class="secondary color-design" data-design="star">✦ Starburst</button>
+      <button type="button" class="secondary color-design" data-design="gem">◇ Crystal</button>
+    </div><div class="palette" id="palette"></div>
+    <div class="color-art" id="colorArt" aria-label="Color by number picture">
+      <button class="region r1" data-number="1" aria-label="Region 1"></button>
+      <button class="region r2" data-number="2" aria-label="Region 2"></button>
+      <button class="region r3" data-number="3" aria-label="Region 3"></button>
+      <button class="region r4" data-number="4" aria-label="Region 4"></button>
+      <button class="region r5" data-number="5" aria-label="Region 5"></button>
+      <button class="region r6" data-number="6" aria-label="Region 6"></button>
+      <div class="art-center">✿</div>
+    </div>
+    <p id="colorMessage" class="note" aria-live="polite">Select a color number to begin.</p>
+    <button id="resetColor" class="secondary">Reset picture</button>
+  </section>
+
+  <section id="activities" class="view">
+    <div class="eyebrow">CREATIVE PLAY FOR GROWN-UPS</div><h2>Pick a prompt. Follow the fun.</h2>
+    <div id="activityGrid" class="activity-grid"></div>
+    <div class="prompt-box"><div class="eyebrow">YOUR RANDOM PROMPT</div><p id="randomPrompt">Draw a place where you feel completely at ease.</p><button id="newPrompt" class="secondary">Give me another prompt</button></div>
+  </section>
+
+  <section id="write" class="view">
+    <div class="eyebrow">STORY LAB</div><h2>Words have their own magic.</h2><p class="muted">Create a podcast episode or begin your next book. Drafts save automatically in this browser.</p>
+    <div class="writing-layout"><div class="writing-sidebar"><label for="writingMode">Creative path</label><select id="writingMode"><option value="podcast">🎙 Podcast studio</option><option value="book">📖 Book studio</option></select><div id="writingGuide" class="writing-guide"></div><button id="insertTemplate" class="secondary">Insert starter outline</button><button id="downloadWriting" class="secondary">Export .txt</button></div><div class="writing-editor"><label for="writingTitle">Project title</label><input id="writingTitle" placeholder="Give your idea a name"><label for="writingText">Your creative draft</label><textarea id="writingText" rows="17" placeholder="Every great story starts somewhere..."></textarea><p id="writingStatus" class="note" aria-live="polite">Your writing stays on this device.</p></div></div>
+  </section>
+  <section id="gallery" class="view"><div class="eyebrow">MY ART GALLERY</div><h2>Your imagination, on display.</h2><p class="muted">Your saved sketches and drawings live here on this device. Select an image to export it.</p><div id="galleryGrid" class="gallery gallery-large"></div>
+    <div class="studio-backup"><h3>Keep your creativity safe</h3><p class="muted">Back up your lessons, saved art, writing, and coloring. Your data is private to this browser until you export it.</p>
+      <button id="exportStudioBackup" class="secondary" type="button">Export studio backup</button>
+      <label class="secondary backup-label" for="importStudioBackup">Import studio backup</label><input id="importStudioBackup" type="file" accept="application/json,.json" hidden>
+    </div><p id="galleryEmpty" class="note">No saved art yet. Create something in Free Play and choose “Save to Gallery.”</p></section>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</main>
+<footer><span>✦ Upfront Art Studios</span><span>Make something that feels like you.</span></footer>
+<script src="app.js"></script>
+</body>
+</html>
