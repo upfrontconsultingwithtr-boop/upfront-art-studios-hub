@@ -1,10 +1,10 @@
 {
-  "name": "Upfront Art Studios Creative Command Hub",
-  "short_name": "Upfront Hub",
+  "name": "Luminary Creative Command Hub",
+  "short_name": "Luminary Hub",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#061014",
-  "theme_color": "#07141a",
+  "background_color": "#08031c",
+  "theme_color": "#15043e",
   "description": "Project hub for Upfront Art Studios.",
   "icons": [
     {

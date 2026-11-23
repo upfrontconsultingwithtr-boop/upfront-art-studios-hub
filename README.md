@@ -35,3 +35,8 @@ After HTTPS deployment, visit the site in Safari, use Share → Add to Home Scre
 - Offline caches versioned to v7 so updates are installed on return visits.
 
 Deployment status was reported live by Render; physical iPad/Pencil and public browser end-to-end tests remain outstanding.
+
+## v8 approved visual direction
+Restores the Luminary Studio neon pink, violet, electric blue and gold visual system from the supplied approved reference. The Studio home screen now uses a live, responsive four-column creative dashboard with the illustrated couple, two entry pathways, real lesson progress, six working widgets and functional drawing-tool shortcuts. The Hub uses a matching theme. Existing local work, storage keys and core features are preserved.
+
+**Not yet implemented:** account-based syncing, live collaboration, photo-to-art conversion, automatic timelapse recording. The home screen labels these honestly. No paid APIs are used.

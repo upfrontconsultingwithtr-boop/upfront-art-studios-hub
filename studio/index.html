@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#17152b">
-<meta name="description" content="Upfront Art Studios — a creative studio for sketching, drawing, coloring and learning.">
+<meta name="theme-color" content="#09031d">
+<meta name="description" content="Luminary Studio by Upfront Art Studios. Neon creative learning, stylus drawing, coloring and writing.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Upfront Art Studios">
 <link rel="stylesheet" href="styles.css">
-<title>Upfront Art Studios</title>
+<title>Luminary Studio | Upfront Art Studios</title>
 </head>
 <body>
 <header class="topbar">
-  <div class="brandmark">✦</div>
-  <div><div class="brand">Upfront Art Studios</div><div class="byline">by Upfront Consulting with Tiff &amp; Reco LLC</div></div>
+  <div class="brandmark" aria-hidden="true">✦</div>
+  <div><div class="brand">Luminary <span>Studio</span></div><div class="byline">UPFRONT ART STUDIOS · by Upfront Consulting with Tiff &amp; Reco LLC</div></div>
   <a class="hub-return" href="../">← Creative Command Hub</a><button id="installBtn" class="quiet" hidden>Install app</button>
 </header>
 <main>
@@ -26,42 +26,45 @@
     <li>Open <strong>Upfront Art Studios</strong> from your Home Screen. Use your finger or Apple Pencil in <strong>Free Play</strong>.</li></ol>
     <p>Installation is free. Your art and lessons are saved locally on the iPad. In <strong>My Gallery</strong>, choose <strong>Export studio backup</strong> before changing devices or clearing browser data. Pencil pressure varies by device and Safari version.</p>
   </details>
-  <section class="hero">
-    <div class="hero-copy"><div class="eyebrow">✦ YOUR PERSONAL CREATIVE UNIVERSE</div><h1>Sketch it.<br><em>Color it. Love it.</em></h1><p>Welcome to a creative world where imagination takes center stage. Explore at your pace, learn new skills, or make something uniquely yours.</p><div class="hero-actions"><button class="primary" data-view="learn">✦ Start the Challenge</button><button class="secondary" data-view="studio">✎ Enter Free Play</button></div><div class="hero-chips"><span>✦ 10 levels · 60 lessons</span><span>♡ Made for grown-up creativity</span><span>✧ Offline-ready after first visit</span></div></div>
-    <div class="hero-portrait"><img src="founders.webp" alt="Smiling creative studio founders wearing sunglasses"><div class="portrait-caption">Create your happy place ♡</div></div>
-  </section>
-
-  <nav class="tabs" aria-label="Main navigation">
-    <button class="tab active" data-view="home">Home</button>
-    <button class="tab" data-view="learn">How To</button>
-    <button class="tab" data-view="studio">Free Play</button>
-    <button class="tab" data-view="color">Color by Number</button>
-    <button class="tab" data-view="activities">Activities</button><button class="tab" data-view="write">Write &amp; Create</button><button class="tab" data-view="gallery">My Gallery</button>
+  <nav class="tabs" aria-label="Studio navigation">
+    <button class="tab active" data-view="home"><span aria-hidden="true">🏠</span> Home</button>
+    <button class="tab" data-view="learn"><span aria-hidden="true">🏆</span> My Progress</button>
+    <button class="tab" data-view="studio"><span aria-hidden="true">🖌️</span> Free Play</button>
+    <button class="tab" data-view="color"><span aria-hidden="true">🌸</span> Color by Number</button>
+    <button class="tab" data-view="activities"><span aria-hidden="true">⭐</span> Activities</button>
+    <button class="tab" data-view="write"><span aria-hidden="true">📖</span> Write &amp; Create</button>
+    <button class="tab" data-view="gallery"><span aria-hidden="true">💾</span> My Gallery</button>
   </nav>
 
   <section id="home" class="view active">
-    <div class="section-head"><div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h2>Your creative journey</h2></div><span class="pill">Private · on this device</span></div>
-    <div class="stats">
-      <article class="stat"><strong id="progressCount">0</strong><span>lessons completed</span></article>
-      <article class="stat"><strong id="levelCount">1 / 10</strong><span>current level</span></article>
-      <article class="stat"><strong>∞</strong><span>ways to create</span></article>
+    <div class="dream-heading">
+      <div class="dream-slogan">✧ Your Creativity... Limitless! ♡</div>
+      <div class="dream-title"><span class="dream-star">✦</span> Luminary <em>Studio</em> <span class="dream-star">✧</span></div>
+      <p>by Upfront Consulting with Tiff &amp; Reco LLC</p>
+      <div class="dream-tagline">Sketch <span>✦</span> Create <span>✦</span> Learn <span>✦</span> Be Inspired</div>
     </div>
-    <h3>Explore your creative universe</h3>
-    <div class="feature-grid">
-      <button class="feature" data-view="learn"><span class="feature-icon">✎</span><b>How To Challenge</b><small>Build skills one friendly lesson at a time.</small></button>
-      <button class="feature" data-view="studio"><span class="feature-icon">✧</span><b>Free Play Studio</b><small>No scores. No pressure. Just make art.</small></button>
-      <button class="feature" data-view="color"><span class="feature-icon">▧</span><b>Color by Number</b><small>Relax with a simple color activity.</small></button>
-      <button class="feature" data-view="activities"><span class="feature-icon">♡</span><b>Creative Activities</b><small>Try a fresh idea whenever you like.</small></button>
+    <div class="dream-stage">
+      <div class="dream-portrait neon-frame pink-frame"><img src="luminary-portrait.webp" alt="Illustrated smiling couple from the approved Luminary Studio design"><div class="portrait-caption">Create your happy place ♡</div></div>
+      <button class="dream-choice neon-frame blue-frame" data-view="learn"><span class="choice-emoji" aria-hidden="true">🎓</span><strong>How To<br>Challenge</strong><span>Learn &amp; Level Up!</span><span class="choice-cta">Start Playing ▶</span></button>
+      <button class="dream-choice neon-frame pink-frame" data-view="studio"><span class="choice-emoji" aria-hidden="true">🎨</span><strong>Free Play</strong><span>No lessons. Just create!</span><span class="choice-cta">Jump In ▶</span></button>
+      <div class="dream-progress neon-frame gold-frame"><div class="progress-heading">⭐ Your Progress</div><div class="progress-ring" id="ringProgress" style="--progress:0"><div><b id="homeProgressLabel">1/10</b><small>Levels</small></div></div><p><strong id="homeLessonsRemaining">60 lessons await you!</strong></p><div class="progress-micro"><span id="progressCount">0</span> lessons complete · Level <span id="levelCount">1 / 10</span></div><button class="primary" data-view="learn">View Progress ▶</button><div class="award-teaser">👑 <span>Unlock the <strong>Master Sketch Artist Award</strong><br>when you finish all 10 levels!</span></div></div>
     </div>
-    <div class="widget-grid" aria-label="Creative widgets">
-      <button class="widget" data-widget="sketch"><span>✎</span><b>How to Sketch</b><small>Guided linework and technique</small></button>
-      <button class="widget" data-widget="draw"><span>🦋</span><b>How to Draw</b><small>Turn ideas into illustrations</small></button>
-      <button class="widget" data-widget="paint"><span>🎨</span><b>How to Color</b><small>Explore color and mood</small></button>
-      <button class="widget" data-view="color"><span>✿</span><b>Color by Number</b><small>Tap to fill and unwind</small></button>
-      <button class="widget" data-widget="podcast"><span>🎙</span><b>Write a Podcast</b><small>Shape your voice and story</small></button>
-      <button class="widget" data-widget="book"><span>📖</span><b>Write a Book</b><small>Bring your story to life</small></button>
+    <div class="dream-section-title">✦ Choose Your Creative Adventure ✦</div>
+    <div class="widget-grid" aria-label="Six creative activities">
+      <button class="widget neon-frame gold-frame" data-widget="sketch"><span>✍️</span><b>How to<br>Sketch</b><small>Learn the basics &amp; beyond</small><i>➜</i></button>
+      <button class="widget neon-frame blue-frame" data-widget="draw"><span>🦋</span><b>How to<br>Draw</b><small>Bring your ideas to life</small><i>➜</i></button>
+      <button class="widget neon-frame gold-frame" data-widget="paint"><span>🎨</span><b>How to<br>Color</b><small>Explore color like a pro</small><i>➜</i></button>
+      <button class="widget neon-frame pink-frame" data-view="color"><span>🌸</span><b>Color by<br>Number</b><small>Create with ease</small><i>➜</i></button>
+      <button class="widget neon-frame blue-frame" data-widget="podcast"><span>🎙️</span><b>How to Write<br>a Podcast</b><small>Share your voice</small><i>➜</i></button>
+      <button class="widget neon-frame pink-frame" data-widget="book"><span>📖</span><b>How to Write<br>a Book</b><small>Turn ideas into a story</small><i>➜</i></button>
     </div>
-    <p class="note">Your work is stored locally in this browser on this device. Cross-device sync is not enabled in this free starter build.</p>
+    <div class="dream-lower">
+      <div class="dream-activity neon-frame pink-frame"><h3>⭐ 20 Fun Activities for Grown-Ups</h3><p>☑ Mindful Mandalas<br>☑ Turn Your Photo into Art*<br>☑ Draw Together Live*<br>☑ Creative Prompts &amp; More!</p><button class="primary" data-view="activities">Explore Activities ▶</button><small>*Some activities are prompts, not automated photo conversion or real-time collaboration yet.</small></div>
+      <div class="dream-toolkit neon-frame blue-frame"><h3>Your Creative Toolkit</h3><div class="tool-shortcuts"><button data-tool="pen"><span>🖊️</span>Pen</button><button data-tool="brush"><span>🖌️</span>Brush</button><button data-tool="eraser"><span>🧽</span>Eraser</button><button data-tool="colors"><span>🎨</span>Colors</button><button data-tool="mirror"><span>🪞</span>Mirror</button><button data-tool="undo"><span>↶</span>Undo</button><button data-tool="save"><span>💾</span>Save</button></div><p>✓ Offline-ready after loading · Art saved on this device</p></div>
+      <div class="dream-inspiration neon-frame pink-frame"><div>✿</div><p>Sketch it...<br>Color it...<br><strong>Love it!</strong> ♡</p></div>
+    </div>
+    <div class="dream-bottom"><span>✓ 10 Levels</span><span>✓ 60 Lessons</span><span>✓ Free to Use</span><span>✓ Stylus Friendly</span><span>♡ Create Your Happy Place</span></div>
+    <p class="note">Your work is private to this browser and device. Export a backup from My Gallery to move it to another device. Cross-device sync and live collaboration are not available yet.</p>
   </section>
 
   <section id="learn" class="view">

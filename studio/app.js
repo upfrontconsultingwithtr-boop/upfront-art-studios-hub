@@ -27,7 +27,13 @@ const activities = [
 ];
 let completed = JSON.parse(localStorage.getItem("luminaryCompleted")||"[]");
 let selectedLevel = 0, selectedLesson = 0;
-function updateStats(){ $("#progressCount").textContent=completed.length; $("#levelCount").textContent=Math.min(10,Math.floor(completed.length/6)+1)+" / 10"; }
+function updateStats(){
+ const count=Math.min(60,completed.length),level=Math.min(10,Math.floor(count/6)+1);
+ $("#progressCount").textContent=count; $("#levelCount").textContent=level+" / 10";
+ const ring=$("#ringProgress");if(ring)ring.style.setProperty("--progress",String(Math.round(count/60*100)));
+ const label=$("#homeProgressLabel");if(label)label.textContent=(count===60?10:level)+"/10";
+ const remaining=$("#homeLessonsRemaining");if(remaining)remaining.textContent=count===60?"All 60 lessons complete!":(60-count)+" lessons await you!";
+}
 function showView(id){ $$(".view").forEach(v=>v.classList.toggle("active",v.id===id)); $$(".tab").forEach(t=>t.classList.toggle("active",t.dataset.view===id)); window.scrollTo({top:0,behavior:"smooth"}); }
 $$("[data-view]").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view)));
 function renderLevels(){
@@ -66,6 +72,18 @@ $("#resetColor").onclick=()=>{$$(".region").forEach(b=>{b.style.background="tran
 let installEvent;window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();installEvent=e;$("#installBtn").hidden=false;});
 $("#installBtn").onclick=async()=>{if(installEvent){installEvent.prompt();await installEvent.userChoice;installEvent=null;$("#installBtn").hidden=true;}};
 if("serviceWorker" in navigator && location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js").catch(()=>{});
+
+// Home toolkit shortcuts launch real drawing tools instead of decorative buttons.
+$$('[data-tool]').forEach(button=>button.addEventListener('click',()=>{
+ const tool=button.dataset.tool;showView('studio');
+ if(tool==='eraser' && !erasing)$('#eraser').click();
+ if(tool==='pen' && erasing)$('#eraser').click();
+ if(tool==='brush'){$('#brushStyle').value='marker';if(erasing)$('#eraser').click();}
+ if(tool==='mirror')$('#mirror').checked=!$('#mirror').checked;
+ if(tool==='colors')$('#ink').focus();
+ if(tool==='undo')$('#undo').click();
+ if(tool==='save')$('#save').click();
+}));
 
 // Connected creative widgets: each opens a usable studio or guided path.
 const widgetPaths={sketch:{view:'learn',level:0},draw:{view:'learn',level:1},paint:{view:'learn',level:3},podcast:{view:'write',mode:'podcast'},book:{view:'write',mode:'book'}};

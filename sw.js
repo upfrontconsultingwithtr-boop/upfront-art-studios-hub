@@ -1,4 +1,4 @@
-const CACHE='upfront-hub-v7';
+const CACHE='upfront-hub-v8';
 const PREFIX='upfront-hub-';
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));

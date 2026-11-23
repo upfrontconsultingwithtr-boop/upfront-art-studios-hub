@@ -1,11 +1,11 @@
 {
-  "name": "Upfront Art Studios",
-  "short_name": "Upfront Art",
+  "name": "Luminary Studio by Upfront Art Studios",
+  "short_name": "Luminary Studio",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#17152b",
-  "theme_color": "#17152b",
-  "description": "Free-first creative studio for adult sketching, drawing, coloring and learning.",
+  "background_color": "#08031c",
+  "theme_color": "#15043e",
+  "description": "Free neon creative studio for adult sketching, coloring, drawing and writing.",
   "icons": [
     {
       "src": "icon-192.png",
