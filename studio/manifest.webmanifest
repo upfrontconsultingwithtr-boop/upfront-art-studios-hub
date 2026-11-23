@@ -1,6 +1,6 @@
 {
-  "name": "Luminary Studio by Upfront Art Studios",
-  "short_name": "Luminary Studio",
+  "name": "Upfront Art Studio",
+  "short_name": "Upfront Art Studio",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#08031c",

@@ -483,7 +483,7 @@ function renderAward(){
  document.getElementById('printAward').onclick=()=>{
    const win=window.open('','_blank');
    if(!win){notify('Allow pop-ups to print your certificate.');return;}
-   win.document.write('<!doctype html><html><head><title>Upfront Art Studios Award</title><meta charset="utf-8"><style>body{font-family:Georgia,serif;text-align:center;padding:8vw;background:#fff;color:#33264d}article{border:8px double #8c67b6;padding:8vw}h1{font-size:40px}p{font-size:20px}</style></head><body><article><h1>✦ Master Sketch Artist Award ✦</h1><p>Certificate of Creative Achievement</p><p>For completing all 60 Upfront Art Studios lessons</p><p>Keep creating. Keep shining.</p><small>Upfront Art Studios · Upfront Consulting with Tiff &amp; Reco LLC</small></article><script>window.onload=()=>window.print()<\/script></body></html>');
+   win.document.write('<!doctype html><html><head><title>Upfront Art Studio Award</title><meta charset="utf-8"><style>body{font-family:Georgia,serif;text-align:center;padding:8vw;background:#fff;color:#33264d}article{border:8px double #8c67b6;padding:8vw}h1{font-size:40px}p{font-size:20px}</style></head><body><article><h1>✦ Master Sketch Artist Award ✦</h1><p>Certificate of Creative Achievement</p><p>For completing all 60 Upfront Art Studio lessons</p><p>Keep creating. Keep shining.</p><small>Upfront Art Studio · Upfront Consulting with Tiff &amp; Reco LLC</small></article><script>window.onload=()=>window.print()<\/script></body></html>');
    win.document.close();
  };
 }
