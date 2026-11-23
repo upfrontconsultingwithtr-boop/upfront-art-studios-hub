@@ -70,7 +70,12 @@
   <section id="learn" class="view">
     <div class="eyebrow">HOW TO CHALLENGE</div><h2>60 original lessons. One masterpiece.</h2>
     <p class="muted">Choose a lesson with its own objective, exercise and completion check. Practice on the canvas and track your progress at your own pace.</p>
-    <div id="levels" class="levels"></div><div class="award-status" id="awardStatus" aria-live="polite"></div>
+    <div id="levels" class="levels"></div>
+    <section class="award-status" aria-labelledby="awardTitle">
+      <h3 id="awardTitle">Master Sketch Artist Award</h3>
+      <p id="awardProgress" role="status"></p>
+      <button class="secondary" id="openAward" type="button" hidden>View your award</button>
+    </section>
     <div id="lessonPanel" class="lesson-panel">
       <div class="eyebrow">YOUR FIRST LESSON</div><h3>Confident Lines · Lesson 1</h3>
       <p>Draw five slow, steady lines. Try changing the length and direction. Notice how your hand feels when you relax your grip.</p>
@@ -142,6 +147,36 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </main>
 <footer><span>✦ Upfront Art Studios</span><span>Make something that feels like you.</span></footer>
+<dialog id="awardCeremony" class="award-ceremony" aria-labelledby="ceremonyTitle">
+  <div class="ceremony-stage" id="ceremonyStage">
+    <form method="dialog"><button class="award-close" aria-label="Close award" autofocus>×</button></form>
+    <div class="award-medal" aria-hidden="true">✦</div>
+    <p class="award-kicker">10 levels · 60 lessons</p>
+    <h2 id="ceremonyTitle">Master Sketch Artist Award</h2>
+    <p class="award-message">From your first confident line to your final masterpiece, every mark was yours. Take a moment to celebrate the artist you’ve become.</p>
+    <button class="primary" id="revealCertificate" type="button">Reveal your certificate</button>
+    <p class="award-note">Earned by you. Free to keep.</p>
+  </div>
+  <div class="certificate-stage" id="certificateStage" hidden>
+    <article id="awardCertificate" class="award-certificate">
+      <p class="award-kicker">Upfront Art Studios</p>
+      <div class="certificate-seal" aria-hidden="true">✦</div>
+      <p>Certificate of Creative Achievement</p>
+      <h2 id="certificateTitle" tabindex="-1">Master Sketch Artist Award</h2>
+      <p>Presented to</p>
+      <p class="certificate-recipient" id="certificateRecipient">Master Sketch Artist</p>
+      <p>For completing all 10 levels and 60 lessons in the How To Challenge.</p>
+    </article>
+    <div class="certificate-controls">
+      <label for="certificateName">Name on your certificate (optional)</label>
+      <input id="certificateName" type="text" autocomplete="name" maxlength="80">
+      <div class="certificate-actions">
+        <button class="primary" id="printCertificate" type="button">Print or save as PDF</button>
+        <form method="dialog"><button class="secondary">Done</button></form>
+      </div>
+    </div>
+  </div>
+</dialog>
 <script src="app.js"></script>
 </body>
 </html>

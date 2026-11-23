@@ -25,7 +25,17 @@ const activities = [
 ["Pattern remix","Combine two patterns into one new design."],["Mini comic","Tell a tiny story in four panels."],
 ["Timelapse replay","Record your screen while making a drawing, then replay it."],["Podcast or book seed","Sketch a cover for an idea you'd love to share."]
 ];
-let completed = JSON.parse(localStorage.getItem("luminaryCompleted")||"[]");
+function loadCompletedLessons() {
+ try {
+   const saved = JSON.parse(localStorage.getItem('luminaryCompleted') || '[]');
+   return Array.isArray(saved)
+     ? [...new Set(saved.filter(id => Number.isInteger(id) && id >= 0 && id < 60))]
+     : [];
+ } catch {
+   return [];
+ }
+}
+const completed = loadCompletedLessons();
 let selectedLevel = 0, selectedLesson = 0;
 function updateStats(){
  const count=Math.min(60,completed.length),level=Math.min(10,Math.floor(count/6)+1);
@@ -397,7 +407,20 @@ renderLesson=function(){
  $('#lessonPanel').innerHTML=`<div class="eyebrow">LEVEL ${selectedLevel+1} · LESSON ${selectedLesson+1} OF 6</div><h3>${item.title}</h3><p><strong>Your creative mission</strong></p><p>${item.exercise}</p><p><strong>How to know you have it</strong></p><p>${item.check}</p><div class="lesson-picker">${picker}</div><p class="muted">Practice with a guide on the canvas, then mark this lesson complete. No scores or time limits.</p><button class="secondary" id="practiceLesson">Practice on canvas</button> <button class="primary" id="completeLesson">${completed.includes(id)?'Completed ✓':'Mark lesson complete'}</button>`;
  $$('#lessonPanel [data-lesson]').forEach(b=>b.onclick=()=>{selectedLesson=+b.dataset.lesson;renderLesson()});
  $('#practiceLesson').onclick=()=>showView('studio');
- $('#completeLesson').onclick=()=>{if(!completed.includes(id))completed.push(id);localStorage.setItem('luminaryCompleted',JSON.stringify(completed));updateStats();renderLevels();notify(completed.length===60?'🏆 Master Sketch Artist Award unlocked!':'Lesson complete! ✨');selectedLesson=(selectedLesson+1)%6;renderLesson()};
+ $('#completeLesson').onclick = () => {
+   const wasComplete = completed.length === lessonCurriculum.length;
+   if (!completed.includes(id)) completed.push(id);
+   localStorage.setItem('luminaryCompleted', JSON.stringify(completed));
+   updateStats();
+   renderLevels();
+   selectedLesson = (selectedLesson + 1) % 6;
+   renderLesson();
+   if (!wasComplete && completed.length === lessonCurriculum.length) {
+     openAwardCeremony();
+   } else {
+     notify('Lesson complete! ✨');
+   }
+ };
 };renderLesson();
 function notify(message){const el=$('#toast');el.textContent=message;el.style.display='block';clearTimeout(notify.timeout);notify.timeout=setTimeout(()=>el.style.display='none',3200);}
 $('#rainbow').onclick=()=>{const palette=['#ff4fce','#52dfff','#ffd05b','#9c8aff','#5ce7ab','#fc7c71'];$('#ink').value=palette[Math.floor(Math.random()*palette.length)];erasing=false;$('#eraser').textContent='Eraser';notify('New color selected ✨');};
@@ -473,22 +496,61 @@ document.getElementById('downloadWithGuide').addEventListener('click',()=>{
  x.drawImage(canvas,0,0);
  const a=document.createElement('a');a.href=c.toDataURL('image/png');a.download='upfront-art-guided-art.png';a.click();
 });
-function renderAward(){
- const box=document.getElementById('awardStatus');
- if(completed.length<60){
-   box.textContent=`🏆 Master Sketch Artist Award · ${completed.length} of 60 lessons completed. The award unlocks after all 60 lessons.`;
-   return;
- }
- box.innerHTML='<strong>🏆 Master Sketch Artist Award unlocked!</strong><p>You completed all 60 creative lessons.</p><button class="primary" id="printAward">Print your certificate</button>';
- document.getElementById('printAward').onclick=()=>{
-   const win=window.open('','_blank');
-   if(!win){notify('Allow pop-ups to print your certificate.');return;}
-   win.document.write('<!doctype html><html><head><title>Upfront Art Studios Award</title><meta charset="utf-8"><style>body{font-family:Georgia,serif;text-align:center;padding:8vw;background:#fff;color:#33264d}article{border:8px double #8c67b6;padding:8vw}h1{font-size:40px}p{font-size:20px}</style></head><body><article><h1>✦ Master Sketch Artist Award ✦</h1><p>Certificate of Creative Achievement</p><p>For completing all 60 Upfront Art Studios lessons</p><p>Keep creating. Keep shining.</p><small>Upfront Art Studios · Upfront Consulting with Tiff &amp; Reco LLC</small></article><script>window.onload=()=>window.print()<\/script></body></html>');
-   win.document.close();
- };
+const awardCeremony = $('#awardCeremony');
+const certificateName = $('#certificateName');
+const awardNameKey = 'luminaryCertificateName';
+try {
+ certificateName.value = localStorage.getItem(awardNameKey) || '';
+} catch {
+ // Personalization is still available for this session.
 }
-const originalUpdateStats=updateStats;
-updateStats=function(){originalUpdateStats();renderAward();};
+
+function renderAward() {
+ const earned = completed.length === lessonCurriculum.length;
+ $('#awardProgress').textContent = earned
+   ? 'Award earned · Your free certificate is ready.'
+   : `${completed.length} of ${lessonCurriculum.length} lessons complete. Finish all 10 levels to unlock your free certificate.`;
+ $('#openAward').hidden = !earned;
+}
+
+function openAwardCeremony() {
+ if (completed.length !== lessonCurriculum.length || awardCeremony.open) return;
+ awardCeremony.setAttribute('aria-labelledby', 'ceremonyTitle');
+ $('#ceremonyStage').hidden = false;
+ $('#certificateStage').hidden = true;
+ awardCeremony.showModal();
+ awardCeremony.scrollTop = 0;
+}
+
+function updateCertificateName() {
+ $('#certificateRecipient').textContent = certificateName.value.trim() || 'Master Sketch Artist';
+}
+
+$('#openAward').onclick = openAwardCeremony;
+$('#revealCertificate').onclick = () => {
+ updateCertificateName();
+ $('#ceremonyStage').hidden = true;
+ $('#certificateStage').hidden = false;
+ awardCeremony.scrollTop = 0;
+ awardCeremony.setAttribute('aria-labelledby', 'certificateTitle');
+ $('#certificateTitle').focus({ preventScroll: true });
+};
+certificateName.addEventListener('input', () => {
+ updateCertificateName();
+ try {
+   localStorage.setItem(awardNameKey, certificateName.value);
+ } catch {
+   // The name remains on the current certificate.
+ }
+});
+$('#printCertificate').onclick = () => window.print();
+awardCeremony.addEventListener('close', () => $('#openAward').focus());
+
+const originalUpdateStats = updateStats;
+updateStats = function () {
+ originalUpdateStats();
+ renderAward();
+};
 renderAward();
 // Keep selected guided topic in sync when practicing a lesson.
 const originalRenderLesson=renderLesson;

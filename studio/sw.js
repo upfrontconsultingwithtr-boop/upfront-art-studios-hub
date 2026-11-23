@@ -1,4 +1,4 @@
-const CACHE='upfront-art-studios-v8';
+const CACHE='upfront-art-studios-v9';
 const PREFIX='upfront-art-studios-';
 const ASSETS=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./founders.webp','./luminary-portrait.webp','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
