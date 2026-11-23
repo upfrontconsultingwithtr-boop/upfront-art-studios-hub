@@ -569,3 +569,6 @@ $('#importStudioBackup').addEventListener('change',async e=>{
  }catch(err){notify('Backup could not be imported. Check that it is a studio backup JSON file.');}
  finally{e.target.value='';}
 });
+
+// Open the selected creative activity from the approved landing-page artwork.
+try { const requestedView = new URLSearchParams(window.location.search).get('view'); if (requestedView && document.getElementById(requestedView) && typeof showView === 'function') { showView(requestedView); } } catch (error) { console.warn('Unable to open requested studio view', error); }
