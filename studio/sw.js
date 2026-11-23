@@ -1,6 +1,6 @@
-const CACHE='upfront-art-studios-private-hub-v2';
+const CACHE='upfront-art-studios-vision-v1';
 const PREFIX='upfront-art-studios-';
-const ASSETS=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./founders.webp','./luminary-portrait.webp','./icon-192.png','./icon-512.png'];
+const ASSETS=['./','./index.html','./styles.css','./app.js','./vision.js','./vision.css','./manifest.webmanifest','./founders.webp','./luminary-portrait.webp','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith(PREFIX)&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{

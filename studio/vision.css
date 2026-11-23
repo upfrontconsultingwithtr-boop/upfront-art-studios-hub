@@ -1,0 +1,52 @@
+.vision-controls {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin: 1rem 0;
+}
+.vision-controls label { display: grid; gap: .35rem; flex: 1 1 12rem; min-width: 0; }
+.vision-controls input, .vision-controls select { width: 100%; min-width: 0; }
+.vision-sheet {
+  --vision-accent: #7534ae;
+  --vision-paper: #f6eaff;
+  background: var(--vision-paper);
+  border: .18rem solid var(--vision-accent);
+  border-radius: 1.25rem;
+  color: #211433;
+  padding: clamp(.8rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+}
+.vision-sheet[data-palette="teal"] { --vision-accent: #056b71; --vision-paper: #e2f9f5; }
+.vision-sheet[data-palette="peach"] { --vision-accent: #9b4427; --vision-paper: #fff0e3; }
+.vision-sheet h3 {
+  font: italic 700 clamp(1.6rem, 5vw, 3.2rem)/1.1 Georgia, serif;
+  overflow-wrap: anywhere;
+  margin: 0 0 1rem;
+  color: var(--vision-accent);
+}
+#vision-cards { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .75rem; }
+.vision-tile { background: white; border: 1px solid var(--vision-accent); border-radius: .75rem; overflow: hidden; }
+.vision-tile img { width: 100%; height: 12rem; display: block; object-fit: contain; }
+.vision-tile p { padding: .9rem; margin: 0; overflow-wrap: anywhere; white-space: pre-wrap; font: 1.15rem/1.35 Georgia, serif; }
+.vision-card-actions { display: flex; flex-wrap: wrap; gap: .25rem; padding: .35rem; }
+.vision-card-actions button { color: #211433; background: #f5ebff; border: 1px solid #a58db7; padding: .4rem; border-radius: .35rem; }
+@media (max-width: 650px) {
+  #vision-cards { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .vision-tile img { height: 8rem; }
+}
+@media print {
+  @page vision-board { size: landscape; margin: 12mm; }
+  body:has(#vision.active) { background: white; color: #211433; }
+  body:has(#vision.active) > :not(main),
+  main:has(#vision.active) > :not(#vision),
+  #vision.active > :not(#vision-sheet),
+  #vision .vision-card-actions { display: none !important; }
+  main:has(#vision.active), #vision.active { margin: 0; padding: 0; max-width: none; }
+  #vision-sheet { page: vision-board; margin: 0; padding: 8mm; print-color-adjust: exact; }
+  #vision-sheet h3 { font-size: 24pt; }
+  #vision-cards { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 3mm; }
+  .vision-tile { break-inside: avoid; }
+  .vision-tile img { height: 36mm; }
+  .vision-tile p { font-size: 11pt; padding: 3mm; }
+}

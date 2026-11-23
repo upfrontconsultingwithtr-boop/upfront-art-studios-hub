@@ -10,6 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Upfront Art Studio">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="vision.css">
 <title>Upfront Art Studio</title>
 </head>
 <body>
@@ -33,6 +34,7 @@
     <button class="tab" data-view="color"><span aria-hidden="true">🌸</span> Color by Number</button>
     <button class="tab" data-view="activities"><span aria-hidden="true">⭐</span> Activities</button>
     <button class="tab" data-view="write"><span aria-hidden="true">📖</span> Write &amp; Create</button>
+    <button class="tab" data-view="vision"><span aria-hidden="true">✦</span> Vision Boards</button>
     <button class="tab" data-view="gallery"><span aria-hidden="true">💾</span> My Gallery</button>
   </nav>
 
@@ -135,13 +137,37 @@
     <div class="writing-layout"><div class="writing-sidebar"><label for="writingMode">Creative path</label><select id="writingMode"><option value="podcast">🎙 Podcast studio</option><option value="book">📖 Book studio</option></select><div id="writingGuide" class="writing-guide"></div><button id="insertTemplate" class="secondary">Insert starter outline</button><button id="downloadWriting" class="secondary">Export .txt</button></div><div class="writing-editor"><label for="writingTitle">Project title</label><input id="writingTitle" placeholder="Give your idea a name"><label for="writingText">Your creative draft</label><textarea id="writingText" rows="17" placeholder="Every great story starts somewhere..."></textarea><p id="writingStatus" class="note" aria-live="polite">Your writing stays on this device.</p></div></div>
   </section>
   <section id="gallery" class="view"><div class="eyebrow">MY ART GALLERY</div><h2>Your imagination, on display.</h2><p class="muted">Your saved sketches and drawings live here on this device. Select an image to export it.</p><div id="galleryGrid" class="gallery gallery-large"></div>
-    <div class="studio-backup"><h3>Keep your creativity safe</h3><p class="muted">Back up your lessons, saved art, writing, and coloring. Your data is private to this browser until you export it.</p>
+    <div class="studio-backup"><h3>Keep your creativity safe</h3><p class="muted">Back up your lessons, saved art, writing, coloring, and vision boards. Your data is private to this browser until you export it.</p>
       <button id="exportStudioBackup" class="secondary" type="button">Export studio backup</button>
       <label class="secondary backup-label" for="importStudioBackup">Import studio backup</label><input id="importStudioBackup" type="file" accept="application/json,.json" hidden>
     </div><p id="galleryEmpty" class="note">No saved art yet. Create something in Free Play and choose “Save to Gallery.”</p></section>
+  <section id="vision" class="view" aria-labelledby="vision-heading">
+    <h2 id="vision-heading">Vision Boards</h2>
+    <p class="muted">Bring your goals to life with your own photos and words. Boards save in this browser.</p>
+    <div class="vision-controls">
+      <label>Saved boards <select id="vision-boards"></select></label>
+      <button class="secondary" id="vision-new" type="button">New board</button>
+      <label>Board title <input id="vision-title" maxlength="80" placeholder="My next chapter"></label>
+      <label>Palette <select id="vision-palette"><option value="violet">Violet</option><option value="teal">Teal</option><option value="peach">Peach</option></select></label>
+      <button class="primary" id="vision-print" type="button">Print or save as PDF</button>
+    </div>
+    <form id="vision-note-form" class="vision-controls">
+      <label>Goal, quote, or affirmation <input id="vision-note" maxlength="240" required></label>
+      <button class="secondary">Add note</button>
+      <label>Add a photo <input id="vision-image" type="file" accept="image/*"></label>
+    </form>
+    <p id="vision-status" role="status"></p>
+    <article id="vision-sheet" class="vision-sheet" data-palette="violet">
+      <h3 id="vision-sheet-title"></h3>
+      <div id="vision-cards"></div>
+      <p id="vision-empty">Add a photo or note to start your board.</p>
+    </article>
+    <button class="secondary" id="vision-delete" type="button">Delete this board</button>
+  </section>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </main>
 <footer><span>✦ Upfront Art Studio</span><span>Make something that feels like you.</span></footer>
 <script src="app.js"></script>
+<script src="vision.js"></script>
 </body>
 </html>
