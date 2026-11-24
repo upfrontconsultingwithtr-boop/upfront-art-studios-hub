@@ -1,4 +1,4 @@
-# Luminary Studio — Creative Universe (updated working prototype)
+# Upfront Art Studio — Creative Universe (updated working prototype)
 
 ## Start for free
 Open `index.html` for a quick desktop preview. For full PWA and offline support, run `python3 -m http.server 8000` inside this folder, then visit `http://localhost:8000`. Publish these files to a static HTTPS host to make them accessible online. No paid app-store account is needed.
