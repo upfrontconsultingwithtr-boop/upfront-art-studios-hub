@@ -1,9 +1,9 @@
-# Upfront Art Studios + Creative Command Hub (v7)
+# Upfront Art Studio + Creative Command Hub (v7)
 
 **This release is a self-contained static website.** No paid dependencies, backend, account, or purchase flow.
 
 - `/` Creative Command Hub: project items, statuses, per-item notes, copy brief to ChatGPT, export/import JSON.
-- `/studio/` Upfront Art Studios: stylus drawing with pressure and mirror mode, practice guides, PNG export, autosaved current canvas draft (IndexedDB), gallery, three original color-by-number layouts with local progress, 60 distinct guided lessons, writing lab, certificate unlock, and portable studio backup.
+- `/studio/` Upfront Art Studio: stylus drawing with pressure and mirror mode, practice guides, PNG export, autosaved current canvas draft (IndexedDB), gallery, three original color-by-number layouts with local progress, 60 distinct guided lessons, writing lab, certificate unlock, and portable studio backup.
 
 ## Deploy on Render
 
