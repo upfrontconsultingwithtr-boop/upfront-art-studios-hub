@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <meta name="theme-color" content="#09031d" />
-<title>Luminary Creative Command Hub | Upfront Art Studios</title>
+<title>Creative Command Hub | Upfront Art Studio</title>
 <link rel="manifest" href="hub.webmanifest" />
 <style>
 :root{--bg:#061014;--panel:#0c1a21;--panel2:#10232d;--line:#21404d;--text:#f5fbff;--muted:#9eb8c3;--teal:#34e6d4;--violet:#9d6cff;--silver:#cad6dc;--good:#59d98e;--warn:#ffcc66;--bad:#ff7f91}
@@ -15,7 +15,7 @@
 .install-guide summary{cursor:pointer;font-weight:750;color:#8ff5e8;min-height:28px}
 .install-guide ol{margin:12px 0;padding-left:23px}.install-guide li{margin:7px 0}.install-guide p{margin:9px 0 2px;color:var(--muted);font-size:13px}
 .install-guide a{color:#b3eaff}
-/* v8 approved Luminary Studio neon companion theme */
+/* v8 approved Upfront Art Studio neon companion theme */
 :root{--bg:#08021d;--panel:#180a39;--panel2:#270b52;--line:#6d3caa;--text:#fff7ff;--muted:#d3bfe8;--teal:#17dfff;--violet:#f04afa;--silver:#f8dafa;--good:#71f9cc;--warn:#ffd366;--bad:#ff7fba}
 body{background:radial-gradient(ellipse at 15% 5%,#41066b 0,transparent 40%),radial-gradient(ellipse at 85% 10%,#081b78 0,transparent 45%),radial-gradient(ellipse at 45% 75%,#22024f 0,transparent 50%),#070219;color:var(--text)}
 body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.6;background-image:radial-gradient(circle at 10% 20%,#fff 1px,transparent 2px),radial-gradient(circle at 80% 50%,#ffd1ff 1px,transparent 2px);background-size:190px 180px,310px 280px}
@@ -29,10 +29,10 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="brand"><div class="mark">✦</div><div><div class="eyebrow">Upfront Art Studios · Creative Command Hub</div><h1>Luminary <em>Creative Command Hub</em></h1><p class="sub">Your creative headquarters. Organize projects, celebrate milestones and launch your Art Studio.</p></div></div>
+    <div class="brand"><div class="mark">✦</div><div><div class="eyebrow">Upfront Art Studio · Creative Command Hub</div><h1>Creative Command Hub</h1><p class="sub">Your creative headquarters. Organize projects, celebrate milestones and launch your Art Studio.</p></div></div>
     <div class="pill"><span class="dot"></span><span id="saveState">Saved on this device</span></div>
   </header>
-  <div class="launchbar"><div><div class="eyebrow">✧ Sketch · Create · Learn · Be Inspired</div><b>Your Luminary Studio awaits</b><span>60 lessons · Free Play · Drawing · Coloring · Podcast &amp; Book Writing</span></div><a href="./studio/" class="btn primary launchlink">Enter Luminary Studio ✦</a></div>
+  <div class="launchbar"><div><div class="eyebrow">✧ Sketch · Create · Learn · Be Inspired</div><b>Your Upfront Art Studio awaits</b><span>60 lessons · Free Play · Drawing · Coloring · Podcast &amp; Book Writing</span></div><a href="./studio/" class="btn primary launchlink">Enter Upfront Art Studio ✦</a></div>
   <details class="install-guide" id="installHelp">
     <summary>📲 Install the Hub and Art Studio on your iPad or phone</summary>
     <ol><li>On an iPad or iPhone, open this website directly in <strong>Safari</strong>. If you are inside ChatGPT, choose <strong>Open in Safari</strong> first.</li>
@@ -67,7 +67,7 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opa
     <div class="sectionhead"><h2>Project backup</h2><div><button class="btn" id="exportBtn" type="button">Export JSON</button> <label class="btn" for="importFile" style="display:inline-flex;align-items:center">Import JSON</label><input id="importFile" type="file" accept="application/json" class="hidden"></div></div>
     <p class="small">Export gives you a portable copy of task statuses and item conversations. Import restores it on another device.</p>
   </section>
-  <div class="footer">Upfront Art Studios • Creative Command Hub • Free-first project workflow</div>
+  <div class="footer">Upfront Art Studio • Creative Command Hub • Free-first project workflow</div>
 </div>
 <script>
 const KEY='upfront-art-hub-v1';
@@ -113,7 +113,7 @@ $('#addForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#newTi
 $('#status').addEventListener('change',e=>{const t=state.tasks.find(x=>x.id===selected);if(t){t.status=e.target.value;render()}});
 $('#progress').addEventListener('input',e=>{$('#progressLabel').textContent=e.target.value});$('#progress').addEventListener('change',e=>{const t=state.tasks.find(x=>x.id===selected);if(t){t.progress=Number(e.target.value);render()}});
 $('#chatForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#chatInput').value.trim();const t=state.tasks.find(x=>x.id===selected);if(!v||!t)return;t.messages.push({who:'You',text:v});$('#chatInput').value='';render()});
-$('#copyBrief').addEventListener('click',async()=>{const t=state.tasks.find(x=>x.id===selected);if(!t)return;const brief=`Upfront Art Studios — ${t.title}\nArea: ${t.area}\nStatus: ${statuses[t.status]}\nProgress: ${t.progress}%\nNotes:\n${t.messages.map(m=>m.who+': '+m.text).join('\n')}`;try{await navigator.clipboard.writeText(brief);$('#saveState').textContent='Item brief copied — paste in ChatGPT';}catch(e){window.prompt('Copy this item brief:',brief)}});
+$('#copyBrief').addEventListener('click',async()=>{const t=state.tasks.find(x=>x.id===selected);if(!t)return;const brief=`Upfront Art Studio — ${t.title}\nArea: ${t.area}\nStatus: ${statuses[t.status]}\nProgress: ${t.progress}%\nNotes:\n${t.messages.map(m=>m.who+': '+m.text).join('\n')}`;try{await navigator.clipboard.writeText(brief);$('#saveState').textContent='Item brief copied — paste in ChatGPT';}catch(e){window.prompt('Copy this item brief:',brief)}});
 $('#needsMe').addEventListener('click' ,()=>{const t=state.tasks.find(x=>x.id===selected);if(t){t.status='review';render()}});$('#markDone').addEventListener('click',()=>{const t=state.tasks.find(x=>x.id===selected);if(t){t.status='done';t.progress=100;render()}});
 $('#exportBtn').addEventListener('click',()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.download='upfront-art-hub-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
 $('#importFile').addEventListener('change',async e=>{
